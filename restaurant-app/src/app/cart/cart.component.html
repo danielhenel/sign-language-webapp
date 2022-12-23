@@ -1,0 +1,18 @@
+<h1>CART</h1>
+<div *ngIf="dishesCart.size > 0" class="cartWrapper">
+  <ul class="cartContent">
+    <li *ngFor="let order of dishesCart.keys()" class="order">
+      <div class="orderName">{{order.name}}</div>
+      <div class="orderPrice">{{order.price}}</div>
+      <div class="orderQuantity">{{dishesCart.get(order)}}</div>
+      <div class="buttons">
+        <button mat-raised-button color="primary" (click)="addDishToCart(order)">+</button>
+        <button mat-raised-button color="warn" (click)="removeDishFromCart(order)">-</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="dishesCart.size == 0">
+  <h3>Cart is empty!</h3>
+</div>

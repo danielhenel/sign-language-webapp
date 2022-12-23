@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Pizza",
+    "cuisine": "Italian",
+    "category": "Main",
+    "ingredients": ["Flour", "Water", "Yeast",  "Salt", "Olive oil", "Tomato sauce", "Cheese"],
+    "maxAvailable": 10,
+    "price": 10.99,
+    "description": "A large pizza with one topping",
+    "imageUrl": "https://www.twopeasandtheirpod.com/wp-content/uploads/2021/03/Veggie-Pizza-8-500x500.jpg"
+  },
+  {
+    "name": "Pad Thai",
+    "cuisine": "Thai",
+    "category": "Main",
+    "ingredients": ["Rice noodles", "Tofu", "Bean sprouts", "Peanuts", "Lime", "Tamari", "Red pepper flakes"],
+    "maxAvailable": 20,
+    "price": 12.99,
+    "description": "A traditional Thai dish made with rice noodles, tofu, and a variety of vegetables",
+    "imageUrl": "https://www.kitchensanctuary.com/wp-content/uploads/2019/07/Pad-Thai-square-FS-29-500x500.jpg"
+  },
+  {
+    "name": "Chicken Tikka Masala",
+    "cuisine": "Indian",
+    "category": "Main",
+    "ingredients": ["Boneless chicken", "Greek yogurt", "Lemon juice", "Cumin", "Coriander", "Garam masala", "Tomato sauce", "Heavy cream"],
+    "maxAvailable": 15,
+    "price": 14.99,
+    "description": "A classic Indian dish made with marinated and grilled chicken in a creamy tomato sauce",
+    "imageUrl": "https://bellyfull.net/wp-content/uploads/2021/05/Chicken-Tikka-Masala-blog-500x500.jpg"
+  },
+  {
+    "name": "Falafel",
+    "cuisine": "Middle Eastern",
+    "category": "Appetizer",
+    "ingredients": ["Dried chickpeas", "Onion", "Parsley", "Cilantro", "Garlic", "Cumin", "Corainder", "Baking powder"],
+    "maxAvailable": 25,
+    "price": 7.99,
+    "description": "Deep-fried balls made from ground chickpeas and spices, often served in a pita with vegetables and sauce",
+    "imageUrl": "https://www.thehungrybites.com/wp-content/uploads/2020/10/falafel-thumb3-500x500.jpg"
+  },
+  {
+    "name": "Paella",
+    "cuisine": "Spanish",
+    "category": "Main",
+    "ingredients": ["Saffron", "Short-grain rice", "Chicken", "Seafood", "Peas", "Tomatoes", "Green peppers", "Onion"],
+    "maxAvailable": 10,
+    "price": 18.99,
+    "description": "A traditional Spanish rice dish made with a variety of ingredients, including seafood and chicken",
+    "imageUrl": "https://m.media-amazon.com/images/I/61qsgN7CWOL._AC_SY1000_.jpg"
+  },
+  {
+    "name": "Coq au Vin",
+    "cuisine": "French",
+    "category": "Main",
+    "ingredients": ["Chicken", "Bacon", "Carrots", "Onion", "Garlic", "Red wine", "Thyme", "Bay leaves"],
+    "maxAvailable": 10,
+    "price": 16.99,
+    "description": "A French dish made with chicken braised in red wine with vegetables and herbs",
+    "imageUrl": "https://www.oliviascuisine.com/wp-content/uploads/2022/02/coq-au-vin-500x500.jpg"
+  },
+  {
+    "name": "Moussaka",
+    "cuisine": "Greek",
+    "category": "Main",
+    "ingredients": ["Eggplant", "Ground beef", "Tomato sauce", "Onion", "Garlic", "Cinnamon", "Allspice", "Béchamel sauce"],
+    "maxAvailable": 15,
+    "price": 14.99,
+    "description": "A traditional Greek dish made with layers of eggplant, ground beef, and a creamy béchamel sauce",
+    "imageUrl": "https://elavegan.com/wp-content/uploads/2019/01/gluten-free-vegan-moussaka-on-a-plate-with-a-wooden-spatula-500x500.jpg"
+  },
+  {
+    "name": "Tempeh Bacon",
+    "cuisine": "Vegan",
+    "category": "Breakfast",
+    "ingredients": ["Tempeh", "Tamari", "Maple syrup", "Liquid smoke", "Smoked paprika"],
+    "maxAvailable": 15,
+    "price": 9.99,
+    "description": "A vegan version of bacon made with tempeh, marinated in a mixture of tamari, maple syrup, and smoky spices",
+    "imageUrl": "https://thehiddenveggies.com/wp-content/uploads/2020/12/tempeh-bacon-sq-500x500.jpg"
+  },
+  {
+    "name": "Eggs Benedict",
+    "cuisine": "American",
+    "category": "Breakfast",
+    "ingredients": ["Eggs", "English muffins", "Canadian bacon", "Hollandaise sauce"],
+    "maxAvailable": 10,
+    "price": 12.99,
+    "description": "A classic American breakfast dish made with poached eggs, Canadian bacon, and hollandaise sauce served on an English muffin",
+    "imageUrl": "https://www.jocooks.com/wp-content/uploads/2020/08/eggs-benedict-1-13-500x500.jpg"
+  },
+  {
+    "name": "Spinach Salad",
+    "cuisine": "American",
+    "category": "Salad",
+    "ingredients": ["Spinach", "Bacon", "Egg", "Red onion", "Tomatoes", "Vinegar", "Sugar"],
+    "maxAvailable": 15,
+    "price": 9.99,
+    "description": "A salad made with fresh spinach and topped with a warm bacon dressing and a variety of vegetables",
+    "imageUrl": "https://www.wholesomelicious.com/wp-content/uploads/2017/04/Spinach-and-Asparagus-Salad-with-Warm-Bacon-Dresssing-Image-500x500.jpg"
+  },
+  {
+    "name": "Minestrone Soup",
+    "cuisine": "Italian",
+    "category": "Soup",
+    "ingredients": ["Olive oil", "Onion", "Carrots", "Celery", "Tomatoes", "Beans", "Zucchini", "Pasta"],
+    "maxAvailable": 20,
+    "price": 8.99,
+    "description": "A traditional Italian soup made with a variety of vegetables and beans, often served with pasta",
+    "imageUrl": "https://www.ambitiouskitchen.com/wp-content/uploads/fly-images/41064/Classic-Minestrone-Soup-5-500x500-c.jpg"
+  },
+  {
+    "name": "Chocolate Cake",
+    "cuisine": "American",
+    "category": "Dessert",
+    "ingredients": ["Flour", "Sugar", "Eggs", "Butter", "Baking powder", "Milk", "Chocolate"],
+    "maxAvailable": 10,
+    "price": 14.99,
+    "description": "A rich and moist chocolate cake with layers of chocolate frosting",
+    "imageUrl": "https://sugargeekshow.com/wp-content/uploads/2021/03/easy_chocolate_cake_featured-500x500.jpg"
+  }
+]

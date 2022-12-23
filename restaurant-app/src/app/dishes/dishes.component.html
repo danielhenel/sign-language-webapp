@@ -1,0 +1,28 @@
+<p>LIST OF DISHES</p>
+<ul class="dishList">
+  <li *ngFor="let dish of dishes; index as i; first as isFirst" class="dishCard">
+      <div class="dish-wrapper">
+        <img [src]=dish.imageUrl class="dishImg">
+        <div class="dish-info">
+          <h3>{{dish.name}}</h3>
+          <p>{{dish.cuisine}}</p>
+          <p>{{dish.category}}</p>
+          <p>{{dish.description}}</p>
+          <p>{{dish.price}}$</p>
+          INGREDIENTS: {{dish.ingredients}}
+          MAX AVAILABLE: {{dish.maxAvailable}}
+          PRICE: {{dish.price}}$
+          DESCRIPTION: {{dish.description}}
+        </div>
+        <div class="buttons">
+          <button *ngIf="dish.maxAvailable > 0" mat-mini-fab color="accent" aria-label="Add to cart" (click)="addDishToCart(dish)">
+            <mat-icon>plus_one</mat-icon>
+          </button>
+          <button mat-fab color="primary" aria-label="Delete from cart" (click)="removeDishFromMenu(dish.name)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+  </li>
+</ul>
