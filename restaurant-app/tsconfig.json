@@ -25,7 +25,8 @@
     ],
     // added
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false
     //
   },
   "angularCompilerOptions": {
