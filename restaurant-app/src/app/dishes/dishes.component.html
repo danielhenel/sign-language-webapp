@@ -1,6 +1,6 @@
 <ul class="dishList">
   <p class="menu">MENU</p>
-  <li *ngFor="let dish of dishes | searchPipe:filterText.text"
+  <li *ngFor="let dish of dishes | filterPipe:filter"
       [ngStyle]="{'box-shadow':
       (dish.price == getMaxPrice()) ?
       '0 4px 8px 0 rgba(0, 255, 78, 0.2), 0 6px 20px 0 rgba(40, 143, 40, 0.19)'
@@ -56,10 +56,3 @@
       <mat-divider></mat-divider>
   </li>
 </ul>
-
-
-<script>
-  function js(){
-    console.log("Hello World");
-  }
-</script>

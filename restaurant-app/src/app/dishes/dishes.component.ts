@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Dish} from '../../models/dish';
 
 
@@ -8,16 +8,22 @@ import {Dish} from '../../models/dish';
   styleUrls: ['./dishes.component.css']
 })
 
-export class DishesComponent {
+export class DishesComponent implements OnInit{
   title: string = 'Dishes';
   @Input() dishes: Dish[] = [];
   @Input() dishesCart: Map<Dish, number> = new Map<Dish, number>();
-
   // dishes meeting the filter criteria
   filteredDishesList: Dish[] = [];
+  // filters
+  @Input() filter: any;
   // searching for dishes by name
   @Input() filterText: any;
 
+  ngOnInit(): void {
+    // set init max, min prices
+    this.filter.minPrice = this.getMinPrice();
+    this.filter.maxPrice = this.getMaxPrice();
+  }
 
   removeDishFromMenu(dishToDel: Dish) {
     console.log(dishToDel.name + ' removed from the menu');
@@ -51,6 +57,9 @@ export class DishesComponent {
   }
 
   getMaxPrice() {
+    console.log(
+      Math.max(...this.dishes.map(dish => dish.price))
+    )
     return Math.max(...this.dishes.map(dish => dish.price));
   }
 

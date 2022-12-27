@@ -79,8 +79,8 @@
   {
     "name": "Tempeh Bacon",
     "ratings": [],
-    "cuisine": "Vegan",
-    "category": "Breakfast",
+    "cuisine": "American",
+    "category": "Vegan",
     "ingredients": ["Tempeh", "Tamari", "Maple syrup", "Liquid smoke", "Smoked paprika"],
     "maxAvailable": 4,
     "price": 9.99,

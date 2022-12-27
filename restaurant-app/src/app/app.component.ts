@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Dish} from "../models/dish";
 import dishesData from "../assets/json/dishes.json";
 import {DishService} from "./shared/dish.service";
+import {Filter} from "../models/filter";
 
 @Component({
   selector: 'app-root',
@@ -12,16 +13,30 @@ export class AppComponent implements OnInit{
   title = 'restaurant-app';
   dishesList: Dish[] = [];
   dishesCart = new Map<Dish, number>();
-  // obj instead of string to have non-primitive type
-  filterText: object = {text: ''};
+  // filtering
+  filter: Filter;
 
   constructor(private dishService: DishService) {}
 
   ngOnInit() {
     this.dishesList = this.dishService.getDishes();
-
     // add default dishes to cart for testing purposes
     this.dishesCart.set(this.dishesList[0], 1);
+
+    // initialize filter used for dishes filtering
+    this.filter = new Filter();
+  }
+
+  getAllCategories() {
+    let categories = new Set<string>();
+    this.dishesList.forEach(dish => categories.add(dish.category));
+    return Array.from(categories);
+  }
+
+  getAllOfCuisines() {
+    let cuisines = new Set<string>();
+    this.dishesList.forEach(dish => cuisines.add(dish.cuisine));
+    return Array.from(cuisines);
   }
 
   addDishToCart(dish: Dish) {
