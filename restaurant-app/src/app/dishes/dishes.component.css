@@ -4,18 +4,68 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.dish-wrapper{
+
+.dishCard{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.dishCard {
   border: 1px solid rgba(0, 0, 0, 0.11);
   height: 20vw;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dish-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  width: 60%;
 }
 
 .dishImg {
-  width: 20%;
-  height: 100%;
+  aspect-ratio : 1 / 1;
+  max-height: 100%;
+  max-width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.buttons {
+  /*border: 1px solid black;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-right: 1%;
+}
+
+.span {
+  margin-bottom: 5%;
+}
+
+.menu {
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.property-description {
+  /*font-size: 1vw;*/
+  font-size: smaller;
+  padding: 0;
+  margin: 0;
+}
+
+.name {
+  font-size: 1.3vw;
+  font-weight: bold;
+}
+
+.statsDiv{
+  margin-top: 1vw;
+  padding: 1px;
+  width: 30%;
+  text-align: center;
+  border-radius: 5px;
 }

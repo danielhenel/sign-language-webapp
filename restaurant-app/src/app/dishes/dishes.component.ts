@@ -13,9 +13,14 @@ export class DishesComponent {
   @Input() dishes: Dish[] = [];
   @Input() dishesCart: Map<Dish, number> = new Map<Dish, number>();
 
-  removeDishFromMenu(name: string) {
-    console.log(name + ' removed from the menu');
-    this.dishes = this.dishes.filter(dish => dish.name !== name);
+  removeDishFromMenu(dishToDel: Dish) {
+    console.log(dishToDel.name + ' removed from the menu');
+    // remove from menu
+    this.dishes = this.dishes.filter(dish => dish.name !== dishToDel.name);
+    // remove from cart since it's no longer available
+    if(this.dishesCart.has(dishToDel)) {
+      this.dishesCart.delete(dishToDel);
+    }
   }
 
   addDishToCart(dish: Dish) {
@@ -24,5 +29,26 @@ export class DishesComponent {
     } else {
       this.dishesCart.set(dish, 1);
     }
+    dish.maxAvailable -= 1;
+  }
+
+  removeDishFromCart(dish: Dish) {
+    if(this.dishesCart.has(dish)) {
+      let newQuantity = this.dishesCart.get(dish)! - 1;
+      if(newQuantity > 0) {
+        this.dishesCart.set(dish, newQuantity);
+      } else {
+        this.dishesCart.delete(dish);
+      }
+      dish.maxAvailable += 1;
+    }
+  }
+
+  getMaxPrice() {
+    return Math.max(...this.dishes.map(dish => dish.price));
+  }
+
+  getMinPrice() {
+    return Math.min(...this.dishes.map(dish => dish.price));
   }
 }
