@@ -6,6 +6,7 @@ import {Dish} from "../../models/dish";
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent {
   title: string = 'Cart';
   @Input() dishesCart: Map<Dish, number> = new Map<Dish, number>();
@@ -16,6 +17,7 @@ export class CartComponent {
     } else {
       this.dishesCart.set(dish, 1);
     }
+    dish.maxAvailable -= 1;
   }
 
   removeDishFromCart(dish: Dish) {
@@ -26,6 +28,15 @@ export class CartComponent {
       } else {
         this.dishesCart.delete(dish);
       }
+      dish.maxAvailable += 1;
     }
+  }
+
+  calculateTotal() {
+    let total: number = 0;
+    for(let [dish, quantity] of this.dishesCart) {
+      total += dish.price * quantity;
+    }
+    return total;
   }
 }

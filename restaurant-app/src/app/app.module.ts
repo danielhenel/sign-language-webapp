@@ -10,21 +10,34 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatDividerModule} from "@angular/material/divider";
 import { CartComponent } from './cart/cart.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import { MenuFilterComponent } from './menu-filter/menu-filter.component';
+import { CreateDishFormComponent } from './create-dish-form/create-dish-form.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
     AppComponent,
     DishesComponent,
     CartComponent,
+    MenuFilterComponent,
+    CreateDishFormComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
     AppRoutingModule,
     MatIconModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

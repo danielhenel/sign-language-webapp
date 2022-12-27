@@ -1,16 +1,28 @@
 <h1>CART</h1>
 <div *ngIf="dishesCart.size > 0" class="cartWrapper">
   <ul class="cartContent">
-    <li *ngFor="let order of dishesCart.keys()" class="order">
+    <li class="orderWrapper">
+      <div class="orderName">NAME</div>
+      <div class="orderPrice">PRICE</div>
+      <div class="orderQuantity">QUANTITY</div>
+      <div class="orderQuantity">SUM</div>
+      <div class="buttons"></div>
+    </li>
+    <li *ngFor="let order of dishesCart.keys()" class="orderWrapper">
       <div class="orderName">{{order.name}}</div>
       <div class="orderPrice">{{order.price}}</div>
       <div class="orderQuantity">{{dishesCart.get(order)}}</div>
+      <div class="orderQuantity">{{dishesCart.get(order)! * order.price}}</div>
       <div class="buttons">
         <button mat-raised-button color="primary" (click)="addDishToCart(order)">+</button>
         <button mat-raised-button color="warn" (click)="removeDishFromCart(order)">-</button>
       </div>
     </li>
   </ul>
+  <div class="cartTotal">
+    <div class="cartTotalText">TOTAL</div>
+    <div class="cartTotalPrice">{{calculateTotal()}}</div>
+  </div>
 </div>
 
 <div *ngIf="dishesCart.size == 0">

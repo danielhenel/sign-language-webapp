@@ -15,8 +15,13 @@
   <p>What do you want to do next with your app?</p>
 </div>
 
-<app-dishes [dishes]="dishesList" [dishesCart]="dishesCart"></app-dishes>
+
+<div class="menu">
+  <app-menu-filter></app-menu-filter>
+  <app-dishes [dishes]="dishesList" [dishesCart]="dishesCart"></app-dishes>
+</div>
 
 <app-cart [dishesCart]="dishesCart"></app-cart>
+<app-create-dish-form [dishesList]="dishesList"></app-create-dish-form>
 
 <router-outlet></router-outlet>
