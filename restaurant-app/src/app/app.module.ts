@@ -16,6 +16,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {CommonModule} from "@angular/common";
+import {DishService} from "./shared/dish.service";
+import { FilterPipe } from './shared/filter.pipe';
+import { SearchPipe } from './shared/search.pipe';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { RatingComponent } from './rating/rating.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +30,9 @@ import {CommonModule} from "@angular/common";
     CartComponent,
     MenuFilterComponent,
     CreateDishFormComponent,
+    FilterPipe,
+    SearchPipe,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +46,11 @@ import {CommonModule} from "@angular/common";
     MatTabsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule,
+    NgbModule,
   ],
-  providers: [],
+  providers: [DishService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

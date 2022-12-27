@@ -1,24 +1,26 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dish} from "../models/dish";
 import dishesData from "../assets/json/dishes.json";
+import {DishService} from "./shared/dish.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'restaurant-app';
   dishesList: Dish[] = [];
   dishesCart = new Map<Dish, number>();
+  // obj instead of string to have non-primitive type
+  filterText: object = {text: ''};
 
-  constructor() {
-    dishesData.forEach(dish => {
-        this.dishesList.push(new Dish(dish.name, dish.cuisine, dish.category,
-          dish.ingredients, dish.maxAvailable, dish.price, dish.description, dish.imageUrl as string));
-      }
-    )
-    // add default dishes to cart for testing
+  constructor(private dishService: DishService) {}
+
+  ngOnInit() {
+    this.dishesList = this.dishService.getDishes();
+
+    // add default dishes to cart for testing purposes
     this.dishesCart.set(this.dishesList[0], 1);
   }
 

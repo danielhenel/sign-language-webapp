@@ -1,6 +1,7 @@
 [
   {
     "name": "Pizza",
+    "ratings": [3, 4, 4, 5, 5, 2, 5, 4, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
     "cuisine": "Italian",
     "category": "Main",
     "ingredients": ["Flour", "Water", "Yeast",  "Salt", "Olive oil", "Tomato sauce", "Cheese"],
@@ -11,6 +12,7 @@
   },
   {
     "name": "Pad Thai",
+    "ratings": [4, 4, 4, 5, 5, 2, 1,3, 3, 5, 5],
     "cuisine": "Thai",
     "category": "Main",
     "ingredients": ["Rice noodles", "Tofu", "Bean sprouts", "Peanuts", "Lime", "Tamari", "Red pepper flakes"],
@@ -21,6 +23,7 @@
   },
   {
     "name": "Chicken Tikka Masala",
+    "ratings": [4, 4, 1,3, 3, 5, 5],
     "cuisine": "Indian",
     "category": "Main",
     "ingredients": ["Boneless chicken", "Greek yogurt", "Lemon juice", "Cumin", "Coriander", "Garam masala", "Tomato sauce", "Heavy cream"],
@@ -31,6 +34,7 @@
   },
   {
     "name": "Falafel",
+    "ratings": [2, 1,3, 3, 5, 5],
     "cuisine": "Middle Eastern",
     "category": "Appetizer",
     "ingredients": ["Dried chickpeas", "Onion", "Parsley", "Cilantro", "Garlic", "Cumin", "Corainder", "Baking powder"],
@@ -41,6 +45,7 @@
   },
   {
     "name": "Paella",
+    "ratings": [3,1,3, 3, 5, 5],
     "cuisine": "Spanish",
     "category": "Main",
     "ingredients": ["Saffron", "Short-grain rice", "Chicken", "Seafood", "Peas", "Tomatoes", "Green peppers", "Onion"],
@@ -51,6 +56,7 @@
   },
   {
     "name": "Coq au Vin",
+    "ratings": [],
     "cuisine": "French",
     "category": "Main",
     "ingredients": ["Chicken", "Bacon", "Carrots", "Onion", "Garlic", "Red wine", "Thyme", "Bay leaves"],
@@ -61,6 +67,7 @@
   },
   {
     "name": "Moussaka",
+    "ratings": [],
     "cuisine": "Greek",
     "category": "Main",
     "ingredients": ["Eggplant", "Ground beef", "Tomato sauce", "Onion", "Garlic", "Cinnamon", "Allspice", "Béchamel sauce"],
@@ -71,6 +78,7 @@
   },
   {
     "name": "Tempeh Bacon",
+    "ratings": [],
     "cuisine": "Vegan",
     "category": "Breakfast",
     "ingredients": ["Tempeh", "Tamari", "Maple syrup", "Liquid smoke", "Smoked paprika"],
@@ -81,6 +89,7 @@
   },
   {
     "name": "Eggs Benedict",
+    "ratings": [],
     "cuisine": "American",
     "category": "Breakfast",
     "ingredients": ["Eggs", "English muffins", "Canadian bacon", "Hollandaise sauce"],
@@ -91,6 +100,7 @@
   },
   {
     "name": "Spinach Salad",
+    "ratings": [],
     "cuisine": "American",
     "category": "Salad",
     "ingredients": ["Spinach", "Bacon", "Egg", "Red onion", "Tomatoes", "Vinegar", "Sugar"],
@@ -101,6 +111,7 @@
   },
   {
     "name": "Minestrone Soup",
+    "ratings": [],
     "cuisine": "Italian",
     "category": "Soup",
     "ingredients": ["Olive oil", "Onion", "Carrots", "Celery", "Tomatoes", "Beans", "Zucchini", "Pasta"],
@@ -111,6 +122,7 @@
   },
   {
     "name": "Chocolate Cake",
+    "ratings": [],
     "cuisine": "American",
     "category": "Dessert",
     "ingredients": ["Flour", "Sugar", "Eggs", "Butter", "Baking powder", "Milk", "Chocolate"],

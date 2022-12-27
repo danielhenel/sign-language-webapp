@@ -13,6 +13,12 @@ export class DishesComponent {
   @Input() dishes: Dish[] = [];
   @Input() dishesCart: Map<Dish, number> = new Map<Dish, number>();
 
+  // dishes meeting the filter criteria
+  filteredDishesList: Dish[] = [];
+  // searching for dishes by name
+  @Input() filterText: any;
+
+
   removeDishFromMenu(dishToDel: Dish) {
     console.log(dishToDel.name + ' removed from the menu');
     // remove from menu

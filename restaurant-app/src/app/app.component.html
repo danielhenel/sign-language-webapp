@@ -17,8 +17,8 @@
 
 
 <div class="menu">
-  <app-menu-filter></app-menu-filter>
-  <app-dishes [dishes]="dishesList" [dishesCart]="dishesCart"></app-dishes>
+  <app-menu-filter [filterText]="filterText"></app-menu-filter>
+  <app-dishes [dishes]="dishesList" [dishesCart]="dishesCart" [filterText]="filterText"></app-dishes>
 </div>
 
 <app-cart [dishesCart]="dishesCart"></app-cart>

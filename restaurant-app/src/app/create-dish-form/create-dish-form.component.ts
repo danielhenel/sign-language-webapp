@@ -60,7 +60,7 @@ export class CreateDishFormComponent implements OnInit {
 
   addNewDish(formValues: any) {
     let ingredients = formValues.ingredients.split(',').map((ingredient: string) => ingredient.trim());
-    let newDish = new Dish(formValues.name, formValues.cuisine, formValues.category,
+    let newDish = new Dish(formValues.name, [], formValues.cuisine, formValues.category,
       ingredients, formValues.maxAvailable, formValues.price, formValues.description, formValues.imageUrl)
     this.dishesList.push(newDish);
     console.log(newDish);
