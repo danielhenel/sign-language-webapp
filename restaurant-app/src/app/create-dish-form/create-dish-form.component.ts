@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Dish} from "../../models/dish";
+import {Filter} from "../../models/filter";
 
 @Component({
   selector: 'app-create-dish-form',
@@ -9,6 +10,8 @@ import {Dish} from "../../models/dish";
 })
 export class CreateDishFormComponent implements OnInit {
   @Input() dishesList: Dish[];
+  // passed to update min/max price
+  @Input() filter: Filter;
   cuisine: string[] = [
     'American', 'Asian', 'British', 'Caribbean', 'Central European',
     'Chinese', 'Eastern European', 'French', 'Indian', 'Italian',
@@ -16,7 +19,7 @@ export class CreateDishFormComponent implements OnInit {
     'Nordic', 'South American', 'South East Asian', 'Spanish', 'Thai',
     'Vietnamese', 'Other'
   ];
-  category: string[] = ['Appetizer', 'Main', 'Dessert', 'Beverage','Salad', 'Soup'];
+  category: string[] = ['Appetizer', 'Main', 'Dessert', 'Beverage','Salad', 'Soup', 'Vegan', 'Vegetarian', 'Gluten Free'];
 
   dishProperties: string[] = [
     'name', 'cuisine', 'category', 'ingredients',
@@ -27,7 +30,6 @@ export class CreateDishFormComponent implements OnInit {
   categorySelect = this.category[1];
   //if all fields are filled correctly, changes submit button from disabled to enabled and vice versa
   fieldsCorrect: boolean = false;
-
 
   dishForm!: FormGroup;
 
@@ -63,6 +65,9 @@ export class CreateDishFormComponent implements OnInit {
     let newDish = new Dish(formValues.name, [], formValues.cuisine, formValues.category,
       ingredients, formValues.maxAvailable, formValues.price, formValues.description, formValues.imageUrl)
     this.dishesList.push(newDish);
-    console.log(newDish);
+    // update min/max price in filter
+    this.filter.minPrice = Math.min(this.filter.minPrice, formValues.price);
+    this.filter.maxPrice = Math.max(this.filter.maxPrice, formValues.price);
+    console.log(this.dishesList);
   }
 }

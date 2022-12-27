@@ -8,7 +8,7 @@ import {Filter} from "../../models/filter";
 })
 export class FilterPipe implements PipeTransform {
   transform(dishes: Dish[], filter: Filter): Dish[] {
-    console.log('filter: ' + filter);
+    // console.log('filter: ' + filter);
     let filtered = this.filterByName(dishes, filter.filterText);
     filtered = this.filterByPrice(filtered, filter.minPrice, filter.maxPrice)
     filtered = this.filterByRating(filtered, filter.minRating);
@@ -18,7 +18,7 @@ export class FilterPipe implements PipeTransform {
   }
 
   filterByName(dishes: Dish[], searchText: string): Dish[] {
-    console.log('searchText: ' + searchText);
+    // console.log('searchText: ' + searchText);
     if (!dishes)
       return [];
     if (!searchText)
@@ -40,7 +40,7 @@ export class FilterPipe implements PipeTransform {
   }
 
   filterByRating(dishes: Dish[], minRating: number): Dish[] {
-    console.log('minRating: ' + minRating);
+    // console.log('minRating: ' + minRating);
     if(minRating < 0 || minRating > 5) {
       console.log('RATING FILTER ERROR: minRating < 0 || minRating > 5');
       return dishes;

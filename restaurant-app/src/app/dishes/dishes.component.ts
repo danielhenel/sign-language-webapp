@@ -7,17 +7,15 @@ import {Dish} from '../../models/dish';
   templateUrl: './dishes.component.html',
   styleUrls: ['./dishes.component.css']
 })
-
 export class DishesComponent implements OnInit{
   title: string = 'Dishes';
-  @Input() dishes: Dish[] = [];
+  @Input() dishes: Dish[];
   @Input() dishesCart: Map<Dish, number> = new Map<Dish, number>();
   // dishes meeting the filter criteria
   filteredDishesList: Dish[] = [];
   // filters
   @Input() filter: any;
-  // searching for dishes by name
-  @Input() filterText: any;
+
 
   ngOnInit(): void {
     // set init max, min prices
@@ -57,9 +55,7 @@ export class DishesComponent implements OnInit{
   }
 
   getMaxPrice() {
-    console.log(
-      Math.max(...this.dishes.map(dish => dish.price))
-    )
+    // console.log(Math.max(...this.dishes.map(dish => dish.price)))
     return Math.max(...this.dishes.map(dish => dish.price));
   }
 

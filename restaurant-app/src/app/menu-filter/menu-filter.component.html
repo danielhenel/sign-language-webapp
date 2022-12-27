@@ -1,11 +1,7 @@
 <h2>Filtering</h2>
 
-
 <p class="filterName">Search by name</p>
-<!--<input type="text" id="searchDishName" placeholder="e.g. Pasta" [(ngModel)]="filterText.text">-->
 <input type="text" id="searchDishName" placeholder="e.g. Pasta" [(ngModel)]="filter.filterText">
-
-<!--TODO: Add a filter for the type of dish, price, cuisine etc. (check in the instructions whats required)-->
 
 <div class="cuisineFilters">
   <p class="filterName">Cuisine</p>
@@ -24,7 +20,7 @@
 <div class="priceFilters">
   <p class="filterName">Price</p>
   <label for="minPrice">from</label>
-  <input type="number" [(ngModel)]="filter.minPrice" [max]="filter.minPrice" [min]="filter.minPrice" id="minPrice">
+  <input type="number" [(ngModel)]="filter.minPrice" id="minPrice">
   <label for="maxPrice">to</label>
-  <input type="number" [(ngModel)]="filter.maxPrice" [max]="filter.minPrice" [min]="filter.minPrice" id="maxPrice">
+  <input type="number" [(ngModel)]="filter.maxPrice" id="maxPrice">
 </div>

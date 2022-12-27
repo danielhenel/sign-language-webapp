@@ -17,7 +17,7 @@ export class Dish {
 
   public getAvgRating() {
     if(this.ratings.length === 0) {
-      console.log('No ratings for ' + this.name + ' yet.');
+      // console.log('No ratings for ' + this.name + ' yet.');
       return -1;
     }
    return this.ratings.reduce((a, b) => a + b, 0) / this.ratings.length;
