@@ -1,0 +1,20 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+.form-group {
+  border: 1px solid blue;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.form-group button {
+  margin: 2%;
+  width: 15vw;
+}
+
+.form-group button:disabled {
+  background-color: #67635e;
+  color: #000000;
+}
+

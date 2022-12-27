@@ -1,0 +1,34 @@
+<h2>Add new dish to the menu!</h2>
+
+<form class="form-group" [formGroup]="dishForm" (ngSubmit)="addNewDish(dishForm.value)">
+<!--  DISH NAME -->
+  <label for="dishName">Name</label>
+  <input type="text" class="form-control" formControlName="name"  id="dishName" placeholder="e.g. Pizza" required>
+  <!--  CUISINE -->
+  <label for="cuisine">Cuisine</label>
+  <select class="form-control" formControlName="cuisine" [(ngModel)]='cuisineSelect' id="cuisine"  required>
+    <option *ngFor="let cuis of cuisine"  [value]="cuis">{{cuis}}</option>
+  </select>
+  <!--  CATEGORY -->
+  <label for="category">Category</label>
+  <select class="form-control" formControlName="category" [(ngModel)]='categorySelect' id="category" required>
+    <option *ngFor="let cat of category" [value]="cat">{{cat}}</option>
+  </select>
+  <!--  INGREDIENTS -->
+  <label for="ingredients">Ingredients [CSV format]</label>
+  <input type="text" class="form-control" formControlName="ingredients" id="ingredients" placeholder="e.g. Flour, Sugar, Milk, Cheese" required>
+  <!--  MAX AVAILABLE -->
+  <label for="maxAvailable">Max Available</label>
+  <input type="number" class="form-control" formControlName="maxAvailable" id="maxAvailable" placeholder="e.g. 10" required>
+  <!--  DISH PRICE -->
+  <label for="dishPrice">Price</label>
+  <input type="number" class="form-control" formControlName="price" id="dishPrice" placeholder="e.g. 15.99" required>
+<!--  DISH DESCRIPTION -->
+  <label for="dishDescription">Description</label>
+  <input type="text" class="form-control" formControlName="description" id="dishDescription" placeholder="e.g. Tasty pizza with cheese topping." required>
+<!--  DISH IMAGE URL -->
+  <label for="dishImage">Image URL</label>
+  <input type="text" class="form-control" formControlName="imageUrl" id="dishImage" placeholder="e.g. pizza-images.com/pizza11.jpg"  required>
+<!--  SUBMIT-->
+  <button mat-raised-button color="primary" type="submit" [disabled]="!inputValid(dishForm.value)">Save</button>
+</form>
