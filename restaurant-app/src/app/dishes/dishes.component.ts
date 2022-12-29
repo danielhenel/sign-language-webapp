@@ -1,5 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dish} from '../../models/dish';
+import {DishService} from "../shared/dish.service";
+import {Router} from "@angular/router";
+import {CartService} from "../shared/cart.service";
+import {FilterService} from "../shared/filter.service";
 
 
 @Component({
@@ -9,15 +13,22 @@ import {Dish} from '../../models/dish';
 })
 export class DishesComponent implements OnInit{
   title: string = 'Dishes';
-  @Input() dishes: Dish[];
-  @Input() dishesCart: Map<Dish, number> = new Map<Dish, number>();
+  dishes: Dish[];
+  dishesCart: Map<Dish, number> = new Map<Dish, number>;
   // dishes meeting the filter criteria
   filteredDishesList: Dish[] = [];
-  // filters
-  @Input() filter: any;
+  filter: any;
 
+  constructor(private dishService: DishService, private cartService: CartService, private filterService: FilterService,
+              public router: Router) {
+    this.dishesCart = cartService.dishesCart;
+    this.filter = filterService.filter;
+  }
 
   ngOnInit(): void {
+    this.dishes = this.dishService.dishesList;
+    // add default dishes to cart for testing purposes
+    this.dishesCart.set(this.dishes[0], 1);
     // set init max, min prices
     this.filter.minPrice = this.getMinPrice();
     this.filter.maxPrice = this.getMaxPrice();
@@ -34,32 +45,32 @@ export class DishesComponent implements OnInit{
   }
 
   addDishToCart(dish: Dish) {
-    if (this.dishesCart.has(dish)) {
-      this.dishesCart.set(dish, this.dishesCart.get(dish)! + 1);
-    } else {
-      this.dishesCart.set(dish, 1);
-    }
+    this.cartService.addDishToCart(dish);
     dish.maxAvailable -= 1;
   }
 
   removeDishFromCart(dish: Dish) {
-    if(this.dishesCart.has(dish)) {
-      let newQuantity = this.dishesCart.get(dish)! - 1;
-      if(newQuantity > 0) {
-        this.dishesCart.set(dish, newQuantity);
-      } else {
-        this.dishesCart.delete(dish);
-      }
-      dish.maxAvailable += 1;
-    }
+    this.cartService.removeDishFromCart(dish);
+    dish.maxAvailable += 1;
   }
 
   getMaxPrice() {
-    // console.log(Math.max(...this.dishes.map(dish => dish.price)))
     return Math.max(...this.dishes.map(dish => dish.price));
   }
 
   getMinPrice() {
     return Math.min(...this.dishes.map(dish => dish.price));
+  }
+
+  getAllCategories() {
+    let categories = new Set<string>();
+    this.dishes.forEach(dish => categories.add(dish.category));
+    return Array.from(categories);
+  }
+
+  getAllOfCuisines() {
+    let cuisines = new Set<string>();
+    this.dishes.forEach(dish => cuisines.add(dish.cuisine));
+    return Array.from(cuisines);
   }
 }

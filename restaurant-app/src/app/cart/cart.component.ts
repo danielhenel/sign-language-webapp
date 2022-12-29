@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Dish} from "../../models/dish";
+import {CartService} from "../shared/cart.service";
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,11 @@ import {Dish} from "../../models/dish";
 
 export class CartComponent {
   title: string = 'Cart';
-  @Input() dishesCart: Map<Dish, number> = new Map<Dish, number>();
+  dishesCart: Map<Dish, number> = new Map<Dish, number>();
+
+  constructor(private cartService: CartService) {
+    this.dishesCart = cartService.dishesCart;
+  }
 
   addDishToCart(dish: Dish) {
     if (this.dishesCart.has(dish)) {

@@ -1,35 +1,17 @@
-<style>
-</style>
-
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <button mat-icon-button color="black" aria-label="Main menu" >
+<!-- Navbar -->
+<nav class="toolbar" role="banner">
+  <button (click)="this.router.navigate(['/cart']);" mat-icon-button color="black"  aria-label="Main menu" >
     <mat-icon>shopping_cart</mat-icon>
   </button>
-  <button mat-icon-button color="black" aria-label="Main menu" >
+  <button (click)="this.router.navigate(['/menu']);" mat-icon-button color="black" aria-label="Main menu" >
     <mat-icon>home</mat-icon>
   </button>
-</div>
+</nav>
+
 <div class="content" role="main">
   <span>{{ title }} app is running!</span>
   <p>What do you want to do next with your app?</p>
 </div>
 
-
-<div class="menu">
-  <app-menu-filter
-    [allCategories]="getAllCategories()"
-    [allCuisines]="getAllOfCuisines()"
-    [filter]="filter"
-  ></app-menu-filter>
-  <app-dishes
-    [dishes]="dishesList"
-    [dishesCart]="dishesCart"
-    [filter]="filter"
-  ></app-dishes>
-</div>
-
-<app-cart [dishesCart]="dishesCart"></app-cart>
-<app-create-dish-form [dishesList]="dishesList" [filter]="filter"></app-create-dish-form>
 
 <router-outlet></router-outlet>

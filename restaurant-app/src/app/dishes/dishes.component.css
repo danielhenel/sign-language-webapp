@@ -1,3 +1,26 @@
+.menuWrapper {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  margin: 1%;
+  font-weight: bold;
+}
+
+.sectionName {
+  margin-left: 2%;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+app-menu-filter {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 1%;
+  width: 30%;
+}
+
+
 .dishList {
   display: flex;
   flex-direction: column;
@@ -43,12 +66,6 @@
 
 .span {
   margin-bottom: 5%;
-}
-
-.menu {
-  font-size: 2vw;
-  font-weight: bold;
-  text-align: center;
 }
 
 .property-description {

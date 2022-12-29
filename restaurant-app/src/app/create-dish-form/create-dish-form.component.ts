@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Dish} from "../../models/dish";
 import {Filter} from "../../models/filter";
+import {FilterService} from "../shared/filter.service";
+import {DishService} from "../shared/dish.service";
 
 @Component({
   selector: 'app-create-dish-form',
@@ -9,9 +11,9 @@ import {Filter} from "../../models/filter";
   styleUrls: ['./create-dish-form.component.css']
 })
 export class CreateDishFormComponent implements OnInit {
-  @Input() dishesList: Dish[];
+  dishesList: Dish[];
   // passed to update min/max price
-  @Input() filter: Filter;
+  filter: Filter;
   cuisine: string[] = [
     'American', 'Asian', 'British', 'Caribbean', 'Central European',
     'Chinese', 'Eastern European', 'French', 'Indian', 'Italian',
@@ -20,7 +22,6 @@ export class CreateDishFormComponent implements OnInit {
     'Vietnamese', 'Other'
   ];
   category: string[] = ['Appetizer', 'Main', 'Dessert', 'Beverage','Salad', 'Soup', 'Vegan', 'Vegetarian', 'Gluten Free'];
-
   dishProperties: string[] = [
     'name', 'cuisine', 'category', 'ingredients',
     'maxAvailable', 'price', 'description', 'imageUrl'
@@ -32,6 +33,11 @@ export class CreateDishFormComponent implements OnInit {
   fieldsCorrect: boolean = false;
 
   dishForm!: FormGroup;
+
+  constructor(private filterService: FilterService, private dishService: DishService) {
+    this.filter = filterService.filter;
+    this.dishesList = dishService.dishesList;
+  }
 
   ngOnInit(): void {
     let name = new FormControl();

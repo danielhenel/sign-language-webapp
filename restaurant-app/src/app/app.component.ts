@@ -3,6 +3,8 @@ import {Dish} from "../models/dish";
 import dishesData from "../assets/json/dishes.json";
 import {DishService} from "./shared/dish.service";
 import {Filter} from "../models/filter";
+import {Router} from "@angular/router";
+import {CartService} from "./shared/cart.service";
 
 @Component({
   selector: 'app-root',
@@ -11,15 +13,16 @@ import {Filter} from "../models/filter";
 })
 export class AppComponent implements OnInit{
   title = 'restaurant-app';
-  dishesList: Dish[] = [];
-  dishesCart = new Map<Dish, number>();
-  // filtering
+  dishesList: Dish[];
+  dishesCart: Map<Dish, number>;
   filter: Filter;
 
-  constructor(private dishService: DishService) {}
+  constructor(private dishService: DishService, public router: Router, private cartService: CartService) {
+    this.dishesCart = cartService.dishesCart;
+  }
 
   ngOnInit() {
-    this.dishesList = this.dishService.getDishes();
+    this.dishesList = this.dishService.dishesList;
     // add default dishes to cart for testing purposes
     this.dishesCart.set(this.dishesList[0], 1);
 
@@ -40,21 +43,10 @@ export class AppComponent implements OnInit{
   }
 
   addDishToCart(dish: Dish) {
-    if (this.dishesCart.has(dish)) {
-      this.dishesCart.set(dish, this.dishesCart.get(dish)! + 1);
-    } else {
-      this.dishesCart.set(dish, 1);
-    }
+    this.cartService.addDishToCart(dish);
   }
 
   removeDishFromCart(dish: Dish) {
-    if(this.dishesCart.has(dish)) {
-      let newQuantity = this.dishesCart.get(dish)! - 1;
-      if(newQuantity > 0) {
-        this.dishesCart.set(dish, newQuantity);
-      } else {
-        this.dishesCart.delete(dish);
-      }
-    }
+    this.cartService.removeDishFromCart(dish);
   }
 }

@@ -14,7 +14,7 @@
       <div class="orderQuantity">{{dishesCart.get(order)}}</div>
       <div class="orderQuantity">{{dishesCart.get(order)! * order.price}}</div>
       <div class="buttons">
-        <button mat-raised-button color="primary" (click)="addDishToCart(order)">+</button>
+        <button mat-raised-button color="primary" [disabled]="order.maxAvailable == 0" (click)="addDishToCart(order)">+</button>
         <button mat-raised-button color="warn" (click)="removeDishFromCart(order)">-</button>
       </div>
     </li>

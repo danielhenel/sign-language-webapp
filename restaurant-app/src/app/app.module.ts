@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,10 @@ import { FilterPipe } from './shared/filter.pipe';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { RatingComponent } from './rating/rating.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DishDetailsComponent } from './dish-details/dish-details.component';
+
+import {appRoutes} from "./routes";
+
 
 @NgModule({
   declarations: [
@@ -31,6 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CreateDishFormComponent,
     FilterPipe,
     RatingComponent,
+    DishDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +53,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     MatCheckboxModule,
     NgbModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [DishService],
   bootstrap: [AppComponent]
