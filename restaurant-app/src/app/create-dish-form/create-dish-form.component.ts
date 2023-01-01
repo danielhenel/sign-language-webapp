@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Dish} from "../../models/dish";
 import {Filter} from "../../models/filter";
 import {FilterService} from "../shared/filter.service";
@@ -31,8 +31,10 @@ export class CreateDishFormComponent implements OnInit {
   categorySelect = this.category[1];
   //if all fields are filled correctly, changes submit button from disabled to enabled and vice versa
   fieldsCorrect: boolean = false;
-
+  // form group
   dishForm!: FormGroup;
+  // used to show prompt when new dish is added
+  isSubmitted: boolean;
 
   constructor(private filterService: FilterService, private dishService: DishService) {
     this.filter = filterService.filter;
@@ -40,14 +42,14 @@ export class CreateDishFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let name = new FormControl();
-    let cuisine = new FormControl();
-    let category = new FormControl();
-    let ingredients = new FormControl();
-    let maxAvailable = new FormControl();
-    let price = new FormControl();
-    let description = new FormControl();
-    let imageUrl = new FormControl();
+    let name = new FormControl(null, Validators.required);
+    let cuisine = new FormControl(null, Validators.required);
+    let category = new FormControl(null, Validators.required);
+    let ingredients = new FormControl(null, Validators.required);
+    let maxAvailable = new FormControl(null, Validators.required);
+    let price = new FormControl(null, Validators.required);
+    let description = new FormControl(null, Validators.required);
+    let imageUrls = new FormControl(null, Validators.required);
     this.dishForm = new FormGroup({
       name: name,
       cuisine: cuisine,
@@ -56,24 +58,58 @@ export class CreateDishFormComponent implements OnInit {
       maxAvailable: maxAvailable,
       price: price,
       description: description,
-      imageUrl: imageUrl
+      imageUrls: imageUrls
     });
   }
 
-
-  inputValid(formValues: any) {
-    // check if all fields are filled
-    return !Object.values(formValues).includes(null);
+  inputValid() {
+    // check if all fields are valid
+    return this.dishForm.valid;
   }
 
   addNewDish(formValues: any) {
-    let ingredients = formValues.ingredients.split(',').map((ingredient: string) => ingredient.trim());
-    let newDish = new Dish(formValues.name, [], formValues.cuisine, formValues.category,
-      ingredients, formValues.maxAvailable, formValues.price, formValues.description, formValues.imageUrl)
-    this.dishesList.push(newDish);
-    // update min/max price in filter
-    this.filter.minPrice = Math.min(this.filter.minPrice, formValues.price);
-    this.filter.maxPrice = Math.max(this.filter.maxPrice, formValues.price);
-    console.log(this.dishesList);
+    if (this.dishForm.valid){
+      let ingredients = formValues.ingredients.split(',').map((ingredient: string) => ingredient.trim());
+      let imageUrls = formValues.imageUrls.split(',').map((imageUrl: string) => imageUrl.trim());
+      let newDish = new Dish(formValues.name, [], [], formValues.cuisine, formValues.category,
+        ingredients, formValues.maxAvailable, formValues.price, formValues.description, imageUrls)
+      this.dishesList.push(newDish);
+      // update min/max price in filter
+      this.filter.minPrice = Math.min(this.filter.minPrice, formValues.price);
+      this.filter.maxPrice = Math.max(this.filter.maxPrice, formValues.price);
+      // show prompt when new dish is added
+      this.isSubmitted = true;
+      // reset form
+      this.dishForm.reset();
+      // set default selected values
+      this.dishForm.controls['cuisine'].setValue(this.cuisine[0]);
+      this.dishForm.controls['category'].setValue(this.category[1]);
+    } else {
+      console.log('Something went wrong. Please check your input.');
+    }
+  }
+
+  validateDishName() {
+    return this.dishForm.controls['name'].valid || this.dishForm.controls['name'].untouched;
+  }
+
+  validateIngredients() {
+    return this.dishForm.controls['ingredients'].valid || this.dishForm.controls['ingredients'].untouched;
+  }
+
+  validateMaxAvailable() {
+    return this.dishForm.controls['maxAvailable'].valid || this.dishForm.controls['maxAvailable'].untouched;
+  }
+
+  validatePrice() {
+    return this.dishForm.controls['price'].valid || this.dishForm.controls['price'].untouched;
+  }
+
+  validateDescription() {
+    return this.dishForm.controls['description'].valid || this.dishForm.controls['description'].untouched;
+  }
+
+  validateImageUrls() {
+    return this.dishForm.controls['imageUrls'].valid || this.dishForm.controls['imageUrls'].untouched;
   }
 }
