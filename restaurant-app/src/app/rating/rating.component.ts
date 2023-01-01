@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Dish} from "../../models/dish";
 import {FormControl} from "@angular/forms";
 
@@ -21,16 +21,5 @@ export class RatingComponent {
     this.dish.ratings.push(this.ratingControl.value || 0);
     this.hasRated = true;
     console.log(this.ratingControl.value);
-  }
-  // TODO: implement rating the dishes functionality
-  //  it's needed to add new field to the dishes: ratings: number[]
-  //  in which you should store all the ratings for the dish
-  //  and then calculate the average rating for the dish and display it
-
-
-  getAvgRating() {
-    let avg = this.dish.ratings.reduce((a, b) => a + b, 0) / this.dish.ratings.length;
-    // format to 2 decimal places
-    return Number(avg).toFixed(2);
   }
 }
