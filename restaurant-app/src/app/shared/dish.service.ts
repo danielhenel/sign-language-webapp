@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Dish} from "../../models/dish";
 import dishesData from "../../assets/json/dishes.json";
+import {Review} from "../../models/review";
 
 
 @Injectable()
@@ -15,8 +16,12 @@ export class DishService {
   // from here HTTP requests will be made to get the data
   getDishes() {
     dishesData.forEach(dish => {
-      this.dishesList.push(new Dish(dish.name, dish.ratings, dish.cuisine, dish.category,
-          dish.ingredients, dish.maxAvailable, dish.price, dish.description, dish.imageUrl as string));
+      let reviews: Review[] = [];
+      dish.reviews.forEach(review => {
+        reviews.push(new Review(review.nickname, review.title, review.date, review.reviewContent));
+      })
+      this.dishesList.push(new Dish(dish.name, dish.ratings, reviews, dish.cuisine, dish.category,
+          dish.ingredients, dish.maxAvailable, dish.price, dish.description, dish.imageUrls));
     });
   }
 
