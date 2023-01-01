@@ -1,7 +1,9 @@
-<p>dish-details works!</p>
 <div class="dishCard">
-  <!--      <div class="dish-wrapper">-->
-  <img [src]=dish.imageUrl class="dishImg">
+  <div class="dishImg">
+    <ng-image-slider [images]="imageObject" #nav
+                     [imageSize]="{width: '100%', height: '59.5%'}"
+    ></ng-image-slider>
+  </div>
   <div class="dish-info">
     <p class="property-description">dish name</p>
     <span class="name">
@@ -13,6 +15,8 @@
     <span class="cuisine">{{dish.cuisine | uppercase}}</span>
     <p class="property-description">category</p>
     <span class="category">{{dish.category}}</span>
+    <p class="property-description">ingredients</p>
+    <span class="category">{{dish.ingredients.toString().replaceAll(',', ' 🍽 ')}}</span>
     <p class="property-description">description</p>
     <span class="description">{{dish.description}}</span>
     <p class="property-description">price</p>
@@ -24,7 +28,7 @@
       <p class="property-description">available / ordered </p>
       <span class="availability" [style.color]="dish.maxAvailable > 3 ? 'black' : 'red'">{{dish.maxAvailable}} </span>
       /
-      <span class="availability"> (NUM OF ORDERED HERE from DB) </span>
+      <span class="availability"> {{cartService.dishesCart.get(dish) ? cartService.dishesCart.get(dish) : 0}} </span>
     </div>
   </div>
   <div class="buttons">
@@ -38,5 +42,5 @@
       <mat-icon>remove</mat-icon>
     </button>
   </div>
-  <!--      </div>-->
 </div>
+<app-reviews [dish]="dish"></app-reviews>
