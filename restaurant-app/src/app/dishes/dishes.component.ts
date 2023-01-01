@@ -18,6 +18,9 @@ export class DishesComponent implements OnInit{
   // dishes meeting the filter criteria
   filteredDishesList: Dish[] = [];
   filter: any;
+  // pagination
+  page:number = 1;
+  itemsPerPage: number = 5;
 
   constructor(private dishService: DishService, private cartService: CartService, private filterService: FilterService,
               public router: Router) {

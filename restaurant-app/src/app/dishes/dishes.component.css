@@ -17,15 +17,16 @@ app-menu-filter {
   flex-direction: column;
   border: 1px solid black;
   margin: 1%;
-  width: 30%;
+  width: 20vw;
 }
 
 
 .dishList {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: 80vw;
+  border: 1px solid black;
+  min-height: 100vh;
 }
 
 .dishCard{
@@ -33,7 +34,8 @@ app-menu-filter {
   flex-direction: row;
   justify-content: space-between;
   border: 1px solid rgba(0, 0, 0, 0.11);
-  height: 30vw;
+  height: 20vw;
+  width: 100%;
   /*min-height: 0;*/
   margin-bottom: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -64,6 +66,10 @@ app-menu-filter {
   padding-right: 3%;
 }
 
+.rating {
+  margin: 0;
+}
+
 .span {
   margin-bottom: 5%;
 }
@@ -81,9 +87,15 @@ app-menu-filter {
 }
 
 .statsDiv{
-  margin-top: 1vw;
-  padding: 1px;
+  margin-top: 0.5vw;
   width: 30%;
   text-align: center;
   border-radius: 5px;
+}
+
+pagination-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2%;
 }

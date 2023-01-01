@@ -23,8 +23,12 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import { RatingComponent } from './rating/rating.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DishDetailsComponent } from './dish-details/dish-details.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { NgImageSliderModule } from 'ng-image-slider';
+
 
 import {appRoutes} from "./routes";
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 @NgModule({
@@ -37,6 +41,7 @@ import {appRoutes} from "./routes";
     FilterPipe,
     RatingComponent,
     DishDetailsComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,9 @@ import {appRoutes} from "./routes";
     MatInputModule,
     MatCheckboxModule,
     NgbModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgxPaginationModule,
+    NgImageSliderModule
   ],
   providers: [DishService],
   bootstrap: [AppComponent]
