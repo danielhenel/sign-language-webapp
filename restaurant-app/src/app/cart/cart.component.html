@@ -23,6 +23,8 @@
       <div class="buttons">
         <button mat-raised-button color="primary" [disabled]="order.maxAvailable == 0" (click)="addDishToCart(order)">+</button>
         <button mat-raised-button color="warn" (click)="removeDishFromCart(order)">-</button>
+<!--        Buy the position instantly -->
+        <button mat-raised-button style="background-color: #69F0AE" (click)="orderSingleDish(order)"><mat-icon>payment</mat-icon></button>
       </div>
     </li>
   </ul>

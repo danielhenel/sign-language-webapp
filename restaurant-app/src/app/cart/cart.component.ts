@@ -51,6 +51,22 @@ export class CartComponent {
     return total;
   }
 
+  orderSingleDish(dish: Dish) {
+    if(this.dishesCart.has(dish)) {
+      let singleDishOrder = new Map<number, number>();
+      let quantity = this.dishesCart.get(dish)!;
+      singleDishOrder.set(dish.id, quantity);
+      this.user.addOrder(singleDishOrder, dish.price * quantity);
+      this.isOrderPlaced = true;
+      // remove the dish from the cart after placing the order
+      this.dishesCart.delete(dish);
+    } else {
+      console.log("Cart is empty! Please add some dishes to your cart before placing the order.");
+      this.isOrderPlaced = false;
+    }
+  }
+
+  // order all dishes from the cart
   placeOrder() {
     if(this.dishesCart.size > 0) {
       this.user.addOrder(this.getDishId_QuantityMap(), this.calculateTotal());
