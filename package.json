@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "ngx-star-rating": "^2.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}

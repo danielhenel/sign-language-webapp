@@ -1,0 +1,15 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+.cartContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.orderWrapper{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
