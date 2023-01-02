@@ -1,0 +1,32 @@
+<h1 style="text-align: center;">Order history</h1>
+<div *ngIf="user.orderHistory.length > 0" class="cartWrapper">
+  <ul class="cartContent">
+    <li *ngFor="let order of user.orderHistory" class="orderWrapper">
+      <div class="cartItem">
+        <div class="orderId">OrderID: {{order.id}}</div>
+<!--        <div class="userId">UserID: {{item.userId}}</div>-->
+        <div class="orderDate">Date: {{order.date}}</div>
+        <div class="orderDishes">Dishes:
+          <ul>
+<!--            TODO: list of ordered dishes with their price and count is not viewed rn... maybe because of key as Dish but it worked previously so check where's the problem-->
+<!--            <li *ngFor="let entry of getDishesArray(order)">-->
+<!--              <div class="dishName">{{entry[0].name}}</div>-->
+<!--              <div class="dishPrice">{{entry[0].price}}</div>-->
+<!--              <div class="dishCount">{{entry[1]}}</div>-->
+<!--            </li>-->
+            <li *ngFor="let dishId_quantity of getDishesArray() | keyvalue">
+              <div class="dishName">{{dishService.getDishByName(dishId_quantity.key)?.name}}</div>
+              <div class="dishPrice">{{dishService.getDishByName(dishId_quantity.key)?.price}}</div>
+              <div class="dishCount">{{dishId_quantity.value!}}</div>
+            </li>
+          </ul>
+        </div>
+        <div class="orderTotal">Total: {{order.total}}</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="user.orderHistory.length == 0">
+  <h3>Order history is empty.</h3>
+</div>

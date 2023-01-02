@@ -14,7 +14,7 @@ import {FilterService} from "../shared/filter.service";
 export class DishesComponent implements OnInit{
   title: string = 'Dishes';
   dishes: Dish[];
-  dishesCart: Map<Dish, number> = new Map<Dish, number>;
+  dishesCart: Map<Dish, number>;
   // dishes meeting the filter criteria
   filteredDishesList: Dish[] = [];
   filter: any;
@@ -30,8 +30,6 @@ export class DishesComponent implements OnInit{
 
   ngOnInit(): void {
     this.dishes = this.dishService.dishesList;
-    // add default dishes to cart for testing purposes
-    this.dishesCart.set(this.dishes[0], 1);
     // set init max, min prices
     this.filter.minPrice = this.getMinPrice();
     this.filter.maxPrice = this.getMaxPrice();

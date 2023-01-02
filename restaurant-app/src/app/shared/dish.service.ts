@@ -14,7 +14,7 @@ export class DishService {
   }
 
   // from here HTTP requests will be made to get the data
-  getDishes() {
+  private getDishes() {
     dishesData.forEach(dish => {
       let reviews: Review[] = [];
       dish.reviews.forEach(review => {

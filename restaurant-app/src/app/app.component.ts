@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dish} from "../models/dish";
-import dishesData from "../assets/json/dishes.json";
 import {DishService} from "./shared/dish.service";
 import {Filter} from "../models/filter";
 import {Router} from "@angular/router";
@@ -23,9 +22,6 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.dishesList = this.dishService.dishesList;
-    // add default dishes to cart for testing purposes
-    this.dishesCart.set(this.dishesList[0], 1);
-
     // initialize filter used for dishes filtering
     this.filter = new Filter();
   }

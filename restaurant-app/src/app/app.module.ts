@@ -29,6 +29,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
 
 import {appRoutes} from "./routes";
 import { ReviewsComponent } from './reviews/reviews.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { ReviewsComponent } from './reviews/reviews.component';
     RatingComponent,
     DishDetailsComponent,
     ReviewsComponent,
+    OrderHistoryComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

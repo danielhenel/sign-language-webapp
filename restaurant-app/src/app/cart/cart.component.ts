@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Dish} from "../../models/dish";
 import {CartService} from "../shared/cart.service";
+import {UserService} from "../shared/user.service";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-cart',
@@ -9,11 +11,15 @@ import {CartService} from "../shared/cart.service";
 })
 
 export class CartComponent {
+  user: User;
   title: string = 'Cart';
-  dishesCart: Map<Dish, number> = new Map<Dish, number>();
+  dishesCart: Map<Dish, number>;
+  isOrderPlaced: boolean = false;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              private userService: UserService) {
     this.dishesCart = cartService.dishesCart;
+    this.user = userService.user;
   }
 
   addDishToCart(dish: Dish) {
@@ -43,5 +49,27 @@ export class CartComponent {
       total += dish.price * quantity;
     }
     return total;
+  }
+
+  placeOrder() {
+    if(this.dishesCart.size > 0) {
+      this.user.addOrder(this.dishesCart);
+      this.isOrderPlaced = true;
+      console.log(this.dishesCart);
+      console.log(this.user.orderHistory);
+      this.dishesCart.clear();
+    } else {
+      console.log("Cart is empty! Please add some dishes to your cart before placing the order.");
+      this.isOrderPlaced = false;
+    }
+  }
+
+  clearCart() {
+    this.dishesCart.forEach(
+      (count, dish) => {
+        dish.maxAvailable += count;
+      });
+    this.dishesCart.clear();
+    this.isOrderPlaced = false;
   }
 }
