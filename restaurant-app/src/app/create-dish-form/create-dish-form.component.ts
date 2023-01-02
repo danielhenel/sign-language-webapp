@@ -71,7 +71,7 @@ export class CreateDishFormComponent implements OnInit {
     if (this.dishForm.valid){
       let ingredients = formValues.ingredients.split(',').map((ingredient: string) => ingredient.trim());
       let imageUrls = formValues.imageUrls.split(',').map((imageUrl: string) => imageUrl.trim());
-      let newDish = new Dish(formValues.name, [], [], formValues.cuisine, formValues.category,
+      let newDish = new Dish(this.getConsecutiveId(), formValues.name, [], [], formValues.cuisine, formValues.category,
         ingredients, formValues.maxAvailable, formValues.price, formValues.description, imageUrls)
       this.dishesList.push(newDish);
       // update min/max price in filter
@@ -111,5 +111,13 @@ export class CreateDishFormComponent implements OnInit {
 
   validateImageUrls() {
     return this.dishForm.controls['imageUrls'].valid || this.dishForm.controls['imageUrls'].untouched;
+  }
+
+  getConsecutiveId() {
+    let id = 0;
+    while (this.dishesList.find(dish => dish.id === id) !== undefined) {
+      id++;
+    }
+    return id;
   }
 }

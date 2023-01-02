@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Pizza",
     "ratings": [3, 4, 4, 5, 5, 2, 5, 4, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
     "reviews": [
@@ -47,6 +48,7 @@
     ]
   },
   {
+    "id": 2,
     "name": "Pad Thai",
     "ratings": [4, 4, 4, 5, 5, 2, 1,3, 3, 5, 5],
     "reviews": [
@@ -66,6 +68,7 @@
     "imageUrls": ["https://www.kitchensanctuary.com/wp-content/uploads/2019/07/Pad-Thai-square-FS-29-500x500.jpg"]
   },
   {
+    "id": 3,
     "name": "Chicken Tikka Masala",
     "ratings": [4, 4, 1,3, 3, 5, 5],
     "reviews": [
@@ -85,6 +88,7 @@
     "imageUrls": ["https://bellyfull.net/wp-content/uploads/2021/05/Chicken-Tikka-Masala-blog-500x500.jpg"]
   },
   {
+    "id": 4,
     "name": "Falafel",
     "ratings": [2, 1,3, 3, 5, 5],
     "reviews": [
@@ -104,6 +108,7 @@
     "imageUrls": ["https://www.thehungrybites.com/wp-content/uploads/2020/10/falafel-thumb3-500x500.jpg"]
   },
   {
+    "id": 5,
     "name": "Paella",
     "ratings": [3,1,3, 3, 5, 5],
     "reviews": [
@@ -123,6 +128,7 @@
     "imageUrls": ["https://m.media-amazon.com/images/I/61qsgN7CWOL._AC_SY1000_.jpg"]
   },
   {
+    "id": 6,
     "name": "Coq au Vin",
     "ratings": [],
     "reviews": [],
@@ -135,6 +141,7 @@
     "imageUrls": ["https://www.oliviascuisine.com/wp-content/uploads/2022/02/coq-au-vin-500x500.jpg"]
   },
   {
+    "id": 7,
     "name": "Moussaka",
     "ratings": [],
     "reviews": [
@@ -154,6 +161,7 @@
     "imageUrls": ["https://elavegan.com/wp-content/uploads/2019/01/gluten-free-vegan-moussaka-on-a-plate-with-a-wooden-spatula-500x500.jpg"]
   },
   {
+    "id": 8,
     "name": "Tempeh Bacon",
     "ratings": [],
     "reviews": [
@@ -173,6 +181,7 @@
     "imageUrls": ["https://thehiddenveggies.com/wp-content/uploads/2020/12/tempeh-bacon-sq-500x500.jpg"]
   },
   {
+    "id": 9,
     "name": "Eggs Benedict",
     "ratings": [],
     "reviews": [],
@@ -185,6 +194,7 @@
     "imageUrls": ["https://www.jocooks.com/wp-content/uploads/2020/08/eggs-benedict-1-13-500x500.jpg"]
   },
   {
+    "id": 10,
     "name": "Spinach Salad",
     "ratings": [],
     "reviews": [],
@@ -197,6 +207,7 @@
     "imageUrls": ["https://www.wholesomelicious.com/wp-content/uploads/2017/04/Spinach-and-Asparagus-Salad-with-Warm-Bacon-Dresssing-Image-500x500.jpg"]
   },
   {
+    "id": 11,
     "name": "Minestrone Soup",
     "ratings": [],
     "reviews": [],
@@ -209,6 +220,7 @@
     "imageUrls": ["https://www.ambitiouskitchen.com/wp-content/uploads/fly-images/41064/Classic-Minestrone-Soup-5-500x500-c.jpg"]
   },
   {
+    "id": 12,
     "name": "Chocolate Cake",
     "ratings": [],
     "reviews": [],

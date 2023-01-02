@@ -2,7 +2,8 @@ import {Review} from "./review";
 
 export class Dish {
 
-  constructor(public name: string,
+  constructor(public id: number,
+              public name: string,
               public ratings: number[],
               public reviews: Review[],
               public cuisine: string,

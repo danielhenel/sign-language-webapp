@@ -14,7 +14,7 @@ export class UserService {
       "johndoe@gmail.com", "+48777888999", "123 Maple Street, Any-town", []);
   }
 
-  addOrder(dishes: Map<Dish, number>) {
-    this.user.addOrder(dishes);
-  }
+  // addOrder(dishes: Map<Dish, number>) {
+  //   this.user.addOrder(dishes);
+  // }
 }

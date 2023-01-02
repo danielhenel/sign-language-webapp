@@ -53,7 +53,7 @@ export class CartComponent {
 
   placeOrder() {
     if(this.dishesCart.size > 0) {
-      this.user.addOrder(this.dishesCart);
+      this.user.addOrder(this.getDishId_QuantityMap(), this.calculateTotal());
       this.isOrderPlaced = true;
       console.log(this.dishesCart);
       console.log(this.user.orderHistory);
@@ -62,6 +62,17 @@ export class CartComponent {
       console.log("Cart is empty! Please add some dishes to your cart before placing the order.");
       this.isOrderPlaced = false;
     }
+  }
+
+  // get map: dishId -> quantity instead of dish -> quantity
+  // in order to send it to the backend
+  getDishId_QuantityMap(): Map<number, number>{
+    let dishId_quantity = new Map<number, number>();
+    this.dishesCart.forEach(
+      (count, dish) => {
+        dishId_quantity.set(dish.id, count);
+      });
+    return dishId_quantity;
   }
 
   clearCart() {

@@ -20,7 +20,7 @@ export class DishService {
       dish.reviews.forEach(review => {
         reviews.push(new Review(review.nickname, review.title, review.date, review.reviewContent));
       })
-      this.dishesList.push(new Dish(dish.name, dish.ratings, reviews, dish.cuisine, dish.category,
+      this.dishesList.push(new Dish(dish.id, dish.name, dish.ratings, reviews, dish.cuisine, dish.category,
           dish.ingredients, dish.maxAvailable, dish.price, dish.description, dish.imageUrls));
     });
   }
@@ -28,5 +28,9 @@ export class DishService {
   // in the end the Dish will be retrieved by id from the database
   getDishByName(name: string) {
     return this.dishesList.find(dish => dish.name.toLowerCase() === name.toLowerCase());
+  }
+
+  getDishById(id: number): Dish {
+    return this.dishesList.find(dish => dish.id === id)!;
   }
 }
