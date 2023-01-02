@@ -1,20 +1,3 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
-p {
-  margin: 0;
-}
-
-.spacer {
-  flex: 1;
-}
-
 .toolbar {
   position: absolute;
   top: 0;
@@ -27,59 +10,18 @@ p {
   background-color: #4bd099;
   color: white;
   font-weight: 600;
+  margin-bottom: 60px;
 }
-
 
 .toolbar button {
   background-color: #1b608c;
   margin-right: 1%;
 }
 
-.content {
+.toDel {
   display: flex;
-  margin: 82px auto 32px;
+  margin: 42px auto 32px;
   padding: 0 16px;
-  max-width: 960px;
-  flex-direction: column;
-  align-items: center;
-}
-
-a,
-a:visited,
-a:hover {
-  color: #265885;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #125699;
-}
-
-footer {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  line-height: 20px;
-}
-
-footer a {
-  display: flex;
-  align-items: center;
-}
-
-app-cart {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  margin: 1%;
-}
-
-app-menu-filter {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  margin: 1%;
-  width: 30%;
 }
 
 /* Responsive Styles */

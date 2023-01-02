@@ -1,3 +1,9 @@
+<h1 class="menu-head">
+  MENU
+  <button (click)="this.router.navigate(['/create-dish']);"  mat-fab color="basic">
+    <mat-icon>add</mat-icon>
+  </button>
+</h1>
 <div class="menuWrapper">
   <app-menu-filter
     [allCategories]="getAllCategories()"
@@ -6,11 +12,6 @@
   ></app-menu-filter>
   <!-- LIST OF DISHES -->
   <ul class="dishList">
-    <p class="sectionName">MENU
-    <button (click)="this.router.navigate(['/create-dish']);"  mat-fab color="basic">
-      <mat-icon>add</mat-icon>
-    </button>
-    </p>
     <li *ngFor="let dish of dishes | filterPipe:filter | paginate: { itemsPerPage: itemsPerPage, currentPage: page}"
         [ngStyle]="{'box-shadow':
       (dish.price == getMaxPrice()) ?
