@@ -8,61 +8,27 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const restaurantRouter = express.Router();
+express.Router();
 const port = process.env.PORT || 3000;
-const Dish = require('./models/dishModel');
 
-app.use('/api', restaurantRouter);
+
+const Dish = require('./models/dishModel');
+const dishRouter = require('./routes/dishRouter')(Dish);
+const Order = require('./models/orderModel');
+const orderRouter = require('./routes/orderRouter')(Order);
+const User = require('./models/userModel');
+const userRouter = require('./routes/userRouter')(User);
+
+
+app.use('/api', dishRouter);
+app.use('/api', orderRouter);
+app.use('/api', userRouter);
+
 
 // TODO:
 //  - create table for Users + CRUD
 //  - integrate it with frontend + create login/register (maybe he put instructions about that)
 
-// Get all dishes: /api/dishes
-restaurantRouter.route('/dishes')
-  // post new dish
-  .post ((req, res) => {
-    const dish = new Dish(req.body);
-    // save dish to database
-    dish.save();
-    return res.status(201).json(dish);
-  })
-  // get all dishes
-  .get((req, res) => {
-    Dish.find((err, dishes) => {
-      if (err) {
-        return res.send(err);
-      }
-      return res.json(dishes);
-    })
-  });
-
-// Filter by any field, f.e. in this case by cuisine: /api/dishes?cuisine=italian
-restaurantRouter.route('/dishesFilter')
-  .get((req, res) => {
-    const { query } = req;
-    if(req.query.cuisine) {
-      query.cuisine = req.query.cuisine;
-    }
-    console.log(query);
-    Dish.find(query, (err, dishes) => {
-      if (err) {
-        return res.send(err);
-      }
-      return res.json(dishes);
-    })
-  });
-
-//Get dish by 'my custom' id: /api/dishes/2
-restaurantRouter.route('/dishes/:id')
-  .get((req, res) => {
-    Dish.find({id: req.params.id}, (err, dish) => {
-      if (err) {
-        return res.send(err);
-      }
-      return res.json(dish);
-    })
-  });
 
 // req -> request
 // res -> response

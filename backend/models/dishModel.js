@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
-// const reviewModel = require('./reviewModel.js');
 
 // address model
 const reviewModelSchema = new Schema({
