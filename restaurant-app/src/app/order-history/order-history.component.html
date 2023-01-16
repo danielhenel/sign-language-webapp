@@ -1,7 +1,7 @@
 <h1 style="text-align: center;">Order history</h1>
-<div *ngIf="user.orderHistory.length > 0" class="cartWrapper">
+<div *ngIf="getOrderHistory().length > 0" class="cartWrapper">
   <ul class="cartContent">
-    <li *ngFor="let order of user.orderHistory" class="orderWrapper">
+    <li *ngFor="let order of getOrderHistory()" class="orderWrapper">
       <div class="cartItem">
         <div class="orderId">OrderID: {{order.id}}</div>
         <div class="orderDate">Date: {{order.date}}</div>
@@ -20,6 +20,6 @@
   </ul>
 </div>
 
-<div *ngIf="user.orderHistory.length == 0">
+<div *ngIf="getOrderHistory().length == 0">
   <h3>Order history is empty.</h3>
 </div>
