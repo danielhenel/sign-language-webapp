@@ -34,6 +34,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+// import { LoginComponent } from './login/login.component';
+// import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -49,6 +51,8 @@ import { RegisterComponent } from './register/register.component';
     ReviewsComponent,
     OrderHistoryComponent,
     HomeComponent,
+    LoginComponent,
+    RegisterComponent,
     LoginComponent,
     RegisterComponent,
   ],
