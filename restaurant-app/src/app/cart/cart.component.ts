@@ -48,12 +48,17 @@ export class CartComponent {
     }
   }
 
+  private precise_round(num: number, decimals: number) {
+    let t = Math.pow(10, decimals);
+    return (Math.round((num * t) + (decimals>0?1:0)*(Math.sign(num) * (10 / Math.pow(100, decimals)))) / t).toFixed(decimals);
+  }
+
   calculateTotal() {
     let total: number = 0;
     for(let [dish, quantity] of this.dishesCart) {
       total += dish.price * quantity;
     }
-    return total;
+    return Math.round(total * 100) / 100;
   }
 
   calculateTotalOfOrder(dishQuantityMap: Map<number, number>) {
@@ -61,7 +66,7 @@ export class CartComponent {
     for(let [dishId, quantity] of dishQuantityMap) {
       total += this.dishService.getDishById(dishId).price * quantity;
     }
-    return total;
+    return Math.round(total * 100) / 100;
   }
 
   orderSingleDish(dish: Dish) {

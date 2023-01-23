@@ -3,7 +3,8 @@ const {Schema} = mongoose;
 
 // address model
 const reviewModelSchema = new Schema({
-  user_id: Number,
+  // for now String because nickname is stored here
+  user_id: String,
   title: String,
   date: String,
   reviewContent: String

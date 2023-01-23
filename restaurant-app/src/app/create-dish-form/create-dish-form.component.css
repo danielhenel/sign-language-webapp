@@ -1,7 +1,13 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
+h2 {
+  padding: 1%;
+}
+
 .form-group {
-  border: 1px solid blue;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2%;
   width: 60%;
   margin: 0 auto;
   text-align: center;

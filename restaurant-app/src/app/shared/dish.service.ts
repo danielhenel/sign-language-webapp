@@ -53,6 +53,7 @@ export class DishService {
     dish.reviews.push(review);
     this.http.patch(
       '/api/dishes/' + dishId,
+      // TODO: nickname instead of id
       {reviews: dish.reviews},
       {headers: new HttpHeaders( {'Content-Type': 'application/json'})}
     ).subscribe(() => {

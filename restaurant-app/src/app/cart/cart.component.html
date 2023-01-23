@@ -32,8 +32,10 @@
     <div class="cartTotalText">TOTAL</div>
     <div class="cartTotalPrice">{{calculateTotal()}}</div>
   </div>
-  <button mat-raised-button color="primary" (click)="placeOrder()">PLACE ORDER</button>
-  <button mat-raised-button color="warn" (click)="clearCart()">CLEAR CART</button>
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="placeOrder()">PLACE ORDER</button>
+    <button mat-raised-button color="warn" (click)="clearCart()">CLEAR CART</button>
+  </div>
 </div>
 
 <div *ngIf="dishesCart.size == 0">
