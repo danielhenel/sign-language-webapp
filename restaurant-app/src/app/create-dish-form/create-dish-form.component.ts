@@ -73,7 +73,8 @@ export class CreateDishFormComponent implements OnInit {
       let imageUrls = formValues.imageUrls.split(',').map((imageUrl: string) => imageUrl.trim());
       let newDish = new Dish(this.getConsecutiveId(), formValues.name, [], [], formValues.cuisine, formValues.category,
         ingredients, formValues.maxAvailable, formValues.price, formValues.description, imageUrls)
-      this.dishesList.push(newDish);
+      // add new dish to the mongoDB and dish list
+      this.dishService.addDish(newDish);
       // update min/max price in filter
       this.filter.minPrice = Math.min(this.filter.minPrice, formValues.price);
       this.filter.maxPrice = Math.max(this.filter.maxPrice, formValues.price);
@@ -114,7 +115,7 @@ export class CreateDishFormComponent implements OnInit {
   }
 
   getConsecutiveId() {
-    let id = 0;
+    let id = 1;
     while (this.dishesList.find(dish => dish.id === id) !== undefined) {
       id++;
     }

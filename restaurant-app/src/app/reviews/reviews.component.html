@@ -36,11 +36,10 @@
   <mat-divider></mat-divider>
   <ul class="reviewList">
     <li *ngFor="let review of reviews" class="review">
-      <p>{{review.nickname}}</p>
+      <p>{{review.user_id}}</p>
       <p>{{review.title}}</p>
       <p>{{review.reviewContent}}</p>
       <p *ngIf="review.date">Date of order:  {{review.date}}</p>
       <mat-divider></mat-divider>
   </ul>
 </div>
-

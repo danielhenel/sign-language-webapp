@@ -43,6 +43,8 @@ export class DishesComponent implements OnInit{
     if(this.dishesCart.has(dishToDel)) {
       this.dishesCart.delete(dishToDel);
     }
+    // remove from database
+    this.dishService.deleteDish(dishToDel.id);
   }
 
   addDishToCart(dish: Dish) {

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Dish} from "../../models/dish";
 import {Review} from "../../models/review";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {DishService} from "../shared/dish.service";
 
 @Component({
   selector: 'app-reviews',
@@ -17,7 +18,7 @@ export class ReviewsComponent implements OnInit{
   fieldsCorrect: boolean = false;
   isSubmitted:boolean = false;
 
-  constructor() { }
+  constructor(private dishService: DishService) { }
 
   ngOnInit(): void {
     //  get reviews from dish
@@ -43,7 +44,8 @@ export class ReviewsComponent implements OnInit{
   addNewReview(formValues: any) {
     if (this.reviewForm.valid){
       let newReview = new Review(formValues.nickname, formValues.title, formValues.date, formValues.reviewContent);
-      this.dish.reviews.push(newReview);
+      // add review to database
+      this.dishService.addReview(this.dish.id, newReview);
       this.isSubmitted = true;
       this.reviewForm.reset();
     } else {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,10 @@ import {appRoutes} from "./routes";
 import { ReviewsComponent } from './reviews/reviews.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+// import { LoginComponent } from './login/login.component';
+// import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -46,6 +51,10 @@ import { HomeComponent } from './home/home.component';
     ReviewsComponent,
     OrderHistoryComponent,
     HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +73,8 @@ import { HomeComponent } from './home/home.component';
     NgbModule,
     RouterModule.forRoot(appRoutes),
     NgxPaginationModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    HttpClientModule
   ],
   providers: [DishService],
   bootstrap: [AppComponent]

@@ -1,7 +1,8 @@
 .menuWrapper {
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 1%;
   font-weight: bold;
   min-height: 150vh;
@@ -20,9 +21,11 @@
 app-menu-filter {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 1%;
-  width: 20vw;
+  padding: 0.5%;
+  width: 23vw;
 }
 
 
@@ -31,7 +34,7 @@ app-menu-filter {
   flex-direction: column;
   width: 80vw;
   margin: 1%;
-  border: 1px solid black;
+  /*border: 1px solid rgba(0, 0, 0, 0.11);*/
   min-height: 100vh;
 }
 
@@ -39,11 +42,11 @@ app-menu-filter {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid rgba(0, 0, 0, 0.11);
   height: 20vw;
   width: 100%;
   /*min-height: 0;*/
   margin-bottom: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.11);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -70,6 +73,16 @@ app-menu-filter {
   flex-direction: column;
   justify-content: space-evenly;
   padding-right: 3%;
+}
+
+button {
+  height: 3.5vw;
+  width: 3.5vw;
+}
+
+button mat-icon {
+  align-items: center;
+  font-size: 1.5vw;
 }
 
 .rating {
