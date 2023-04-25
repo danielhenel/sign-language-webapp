@@ -27,3 +27,7 @@ npm start
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload after each change.
 
 In the `proxy.conf.json` file, the proxy configuration is set to `http://localhost:4000/`. This is the default port for the backend server. 
+=======
+-
+Application is still under development. Current version is available on branch [3-create-application-backend](https://github.com/YgLK/restaurant-webapp/tree/3-create-application-backend)
+
