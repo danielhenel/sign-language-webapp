@@ -1,0 +1,19 @@
+<h1 style="text-align: center;">Player Rankings</h1>
+<div *ngIf="playerRankings.length > 0" class="rankingItem">
+  <ul class="rankingContent">
+    <li class="rankingWrapper" style="border-color: lightslategrey">
+      <div class="playerRank">Rank</div>
+      <div class="playerName">Name</div>
+      <div class="playerScore">Score</div>
+    </li>
+    <li *ngFor="let player of playerRankings; let i = index" class="rankingWrapper">
+      <div class="playerRank">{{i + 1}}</div>
+      <div class="playerName">{{player.name}}</div>
+      <div class="playerScore">{{player.score}}</div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="playerRankings.length == 0">
+  <h3>No players found.</h3>
+</div>
