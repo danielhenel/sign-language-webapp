@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 
 @Component({
@@ -10,6 +11,7 @@ import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 })
 
 export class CameraCaptureComponent implements OnInit {
+  constructor(private http: HttpClient) {  }
   private trigger: Subject<any> = new Subject();
   public webcamImage!: WebcamImage;
   private nextWebcam: Subject<any> = new Subject();
@@ -17,6 +19,7 @@ export class CameraCaptureComponent implements OnInit {
   ngOnInit() {}
   public getSnapshot(): void {
     this.trigger.next(void 0);
+
   }
   public captureImg(webcamImage: WebcamImage): void {
     this.webcamImage = webcamImage;
@@ -28,5 +31,12 @@ export class CameraCaptureComponent implements OnInit {
   }
   public get nextWebcamObservable(): Observable<any> {
     return this.nextWebcam.asObservable();
+  }
+
+  public getDetection(){
+      this.http.get<any>('/api/detection')
+      .subscribe((data: any) => {
+          console.log(data);
+      });
   }
 }

@@ -15,6 +15,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {RegisterComponent} from "./register/register.component";
 import { RankingComponent } from './ranking/ranking.component';
+import { FlashcardsComponent } from './flashcards/flashcards.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { RankingComponent } from './ranking/ranking.component';
     HomepageComponent,
     LoginComponent,
     RegisterComponent,
-    RankingComponent
+    RankingComponent,
+    FlashcardsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { RankingComponent } from './ranking/ranking.component';
     MatIconModule,
     ReactiveFormsModule,
     MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

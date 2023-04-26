@@ -19,10 +19,14 @@ const orderRouter = require('./routes/orderRouter')(Order);
 const User = require('./models/userModel');
 const userRouter = require('./routes/userRouter')(User);
 
-
 app.use('/api', dishRouter);
 app.use('/api', orderRouter);
 app.use('/api', userRouter);
+
+
+// sign language app
+const detectionRouter = require('./routes/detectionRouter')();
+app.use('/api', detectionRouter);
 
 
 // TODO:
@@ -36,6 +40,12 @@ app.get('/', (req, res) => {
   res.send('RESTAURANT API');
 });
 
+
+
 app.listen(port, () => {
   console.log(`Running at http://localhost:${port}`);
 });
+
+// app.get('/api/detection', (req, res) => {
+//   res.send({"detected": "G"});
+// })
