@@ -33,21 +33,10 @@ export class CameraCaptureComponent implements OnInit {
     return this.nextWebcam.asObservable();
   }
 
-  public HTTPGET(){
-      this.http.get<any>('/api/model')
+  public getDetection(){
+      this.http.get<any>('/api/detection')
       .subscribe((data: any) => {
-   
-          console.log("dsdsdsdsds" + data);
-   
+          console.log(data);
       });
   }
-
-  // this.http.get<any>('/api/dishes')
-  //     .subscribe((data: any) => {
-  //       data.forEach((dish: any) => {
-  //         console.log(dish);
-  //         dishesPrepared.push(this.prepareDish(dish));
-  //       });
-  //     });
-
 }
