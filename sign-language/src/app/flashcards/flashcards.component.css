@@ -1,0 +1,126 @@
+
+.card-container {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+  
+  
+  
+  
+  .flip-box {
+    background-color: transparent;
+    width: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+    
+  }
+  
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  
+  
+  .flip-box-front,
+  .flip-box-back {
+      min-height: 280px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .flip-box-front {
+      color: black;
+  }
+  
+  
+  
+  .flip-box-front .image .textcontainer {
+    position:absolute; 
+    right:0px; 
+    bottom:112px;
+    font-size:2em;
+  }
+  
+  .textcontainer span{
+    color: antiquewhite;
+    background-color: coral;
+  }
+  
+  .description{
+    width: 70%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .flip-box-back {
+      width: 100%;
+      height: auto;
+      min-height: 280px;
+      background-color: #ff6f00;
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+  }
+  
+  .flip-box-back button{
+    background-color: aliceblue;
+    border-radius: 20px;
+    min-height: 30px;
+    width: 40%;
+  }
+  
+  @media screen and (max-width: 968px) {
+    body{
+      grid-template-columns: auto auto;
+    }   
+    .flip-box-inner {
+      padding-top: 100%;
+  }
+  }
+  
+  
+  
+  
+  
+  
+  /*
+  .card:hover{
+      animation-name: flipcard;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+  }
+  */
+  @keyframes flipcard {
+      0%   {transform: rotateY( 0deg );}
+      25%  {transform: rotateY( 45deg );}
+      50%  {transform: rotateY( 90deg );}
+      100% {transform: rotateY( 180deg );}
+  }  
+  

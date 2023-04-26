@@ -1,0 +1,20 @@
+<div class="card-container">
+
+    <div *ngFor="let letter of alphabet">
+        <div class="flip-box">
+            <div class="flip-box-inner">
+                <div class="flip-box-front">
+                    <div class="image">
+                    <img src="assets/images/question-mark.png" alt="Orange" width="100px"/>
+                        {{letter}}
+                    </div>
+                </div>
+                <div class="flip-box-back">
+                    <img src="assets/images/{{letter}}-flashcard.png" alt="Orange" width="100px"/>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+</div>
+
