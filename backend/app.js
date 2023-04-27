@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // Connect to MongoDB
 
 const database = require('./database');
+const AImodel = require('./AImodel');
 const bodyParser = require('body-parser');
 // body-parser used to POST data
 const app = express();
@@ -12,15 +13,13 @@ express.Router();
 const port = process.env.PORT || 3000;
 
 
-const Dish = require('./models/dishModel');
-const dishRouter = require('./routes/dishRouter')(Dish);
-const Order = require('./models/orderModel');
-const orderRouter = require('./routes/orderRouter')(Order);
+const Record = require('./models/recordModel');
+const recordRouter = require('./routes/recordRouter')(Record);
 const User = require('./models/userModel');
 const userRouter = require('./routes/userRouter')(User);
 
-app.use('/api', dishRouter);
-app.use('/api', orderRouter);
+
+app.use('/api', recordRouter);
 app.use('/api', userRouter);
 
 
