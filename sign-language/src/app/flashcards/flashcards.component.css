@@ -1,11 +1,7 @@
-
 .card-container {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
 }
-
-
-
 
   .flip-box {
     background-color: transparent;
@@ -68,8 +64,6 @@
     color: black;
   }
 
-
-
   .flip-box-front .image .textcontainer {
     position:absolute;
     right:0;
@@ -119,16 +113,6 @@
   }
   }
 
-
-  /*
-  .card:hover{
-      animation-name: flipcard;
-      animation-duration: 2s;
-      animation-fill-mode: forwards;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-  }
-  */
   @keyframes flipcard {
       0%   {transform: rotateY( 0deg );}
       25%  {transform: rotateY( 45deg );}

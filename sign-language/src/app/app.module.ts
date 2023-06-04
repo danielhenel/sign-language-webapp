@@ -11,7 +11,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import {RouterModule} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import {LoginComponent} from "./login/login.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {RegisterComponent} from "./register/register.component";
 import { RankingComponent } from './ranking/ranking.component';
@@ -31,16 +31,17 @@ import { GameComponent } from './game/game.component';
     FlashcardsComponent,
     GameComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    WebcamModule,
-    RouterModule.forRoot(appRoutes),
-    MatIconModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        WebcamModule,
+        RouterModule.forRoot(appRoutes),
+        MatIconModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
