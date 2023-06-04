@@ -5,6 +5,7 @@ import {LoginComponent} from "./login/login.component";
 import {RankingComponent} from "./ranking/ranking.component";
 import {RegisterComponent} from "./register/register.component";
 import { FlashcardsComponent } from './flashcards/flashcards.component';
+import {GameComponent} from "./game/game.component";
 
 
 export const appRoutes:Routes = [
@@ -14,5 +15,6 @@ export const appRoutes:Routes = [
   { path: "login", component: LoginComponent},
   { path: "register", component: RegisterComponent},
   { path: "ranking", component: RankingComponent},
-  { path: "flashcards", component: FlashcardsComponent}
+  { path: "flashcards", component: FlashcardsComponent},
+  { path: "game", component: GameComponent}
 ];

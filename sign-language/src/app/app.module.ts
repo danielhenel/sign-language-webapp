@@ -17,6 +17,7 @@ import {RegisterComponent} from "./register/register.component";
 import { RankingComponent } from './ranking/ranking.component';
 import { FlashcardsComponent } from './flashcards/flashcards.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     RankingComponent,
-    FlashcardsComponent
+    FlashcardsComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
