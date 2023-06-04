@@ -1,0 +1,58 @@
+.word {
+/*  flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  height: 40em;
+  width: 40em;
+  border: 1px solid black;
+}
+
+.wordImage img {
+  width: 30em;
+  height: 30em;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.letters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.letter {
+  text-align: center;
+  line-height: 3em; /* for example. */
+  border-radius: 0.5em;
+  font-weight: bold;
+  color: #333;
+  width: 3em;
+  height: 3em;
+  /*background-color: red;*/
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.game {
+  width: 50em;
+  margin: 1em;
+}
+
+.camera-wrapper {
+  width: 50em;
+}

@@ -1,0 +1,33 @@
+<h2 style="text-align: center; text-transform: uppercase">Test your sign language skills with the game!</h2>
+<div class="wrapper">
+  <div class="game">
+    <button (click)="testClick()">Click to generate word</button>
+    <input type="text" [(ngModel)]="userInput" (keydown)="testWithMockPredictions($event)">
+
+    <div class="word" *ngIf="this.gameService.isGameStarted">
+      <div class="wordImage">
+        <p class="title">{{this.gameService.currentWord}}</p>
+        <img [src]="this.gameService.currentImageUrl" alt="">
+      </div>
+      <div class="wordText">
+      </div>
+      <div class="letters">
+        <div class="letter" *ngFor="let letter of this.gameService.getWordLetters()"
+             [style.background-color]="gameService.isLetterGuessed(letter) ? 'green' : 'red'">
+          {{letter}}
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!this.gameService.isGameStarted && this.gameService.isWordGuessed ">
+      Well done. You properly showed word <b>{{this.gameService.currentWord}}</b>! Congrats.
+    </div>
+
+    <div *ngIf="!this.gameService.isGameStarted">
+      Click button to pick random word! :)
+    </div>
+  </div>
+  <div class="camera-wrapper">
+    <app-camera-capture></app-camera-capture>
+  </div>
+</div>
