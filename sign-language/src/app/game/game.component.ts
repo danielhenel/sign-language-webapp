@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GameService} from "../shared/game.service";
+import * as tf from '@tensorflow/tfjs';
 
 @Component({
   selector: 'app-game',
@@ -8,8 +9,13 @@ import {GameService} from "../shared/game.service";
 })
 export class GameComponent implements OnInit{
   userInput: string = '';
+  predicted = '';
+  private model; 
 
-  ngOnInit(): void {}
+  async ngOnInit(): Promise<void> {
+    this.model = await tf.loadLayersModel('http://localhost:3000/models/ASL/model.json');
+    console.log(this.model.summary());
+  }
 
   testWithMockPredictions(event: KeyboardEvent) {
     if (event.key === 'Enter') {

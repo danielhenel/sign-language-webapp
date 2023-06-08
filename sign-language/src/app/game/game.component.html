@@ -17,6 +17,9 @@
           {{letter}}
         </div>
       </div>
+      <div>
+        <h2>Predicted: {{predicted}}</h2>
+      </div>
     </div>
 
     <div *ngIf="!this.gameService.isGameStarted && this.gameService.isWordGuessed ">

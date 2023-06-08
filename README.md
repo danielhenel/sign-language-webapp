@@ -18,11 +18,14 @@ npm install
 npm start
 
 2. Run frontend server
-cd restaurant-app
+cd sign-language
 npm install
 npm start
-```
 
+2. Run http-server
+cd sign-language
+http-server -p 3000 --cors
+```
 ## Development server
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload after each change.
 
