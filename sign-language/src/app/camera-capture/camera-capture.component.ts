@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import cv from "@techstark/opencv-js";
 
 
 @Component({
@@ -24,7 +25,17 @@ export class CameraCaptureComponent implements OnInit {
   public captureImg(webcamImage: WebcamImage): void {
     this.webcamImage = webcamImage;
     this.sysImage = webcamImage!.imageAsDataUrl;
+
+    // example
+    const gray = new cv.Mat();
+    var image = cv.imread(this.sysImage);
+    var gray_image = cv.cvtColor(image, gray,cv.COLOR_RGBA2GRAY,0);
+    console.info(gray_image);
+    //
+
     console.info('got webcam image', this.sysImage);
+    
+
   }
   public get invokeObservable(): Observable<any> {
     return this.trigger.asObservable();
