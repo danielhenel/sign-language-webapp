@@ -13,7 +13,7 @@ export class GameComponent implements OnInit{
   private model; 
 
   async ngOnInit(): Promise<void> {
-    this.model = await tf.loadLayersModel('http://localhost:3000/models/ASL/model.json');
+    this.model = await tf.loadLayersModel('http://localhost:3000/models/signify/model.json');
     console.log(this.model.summary());
   }
 
