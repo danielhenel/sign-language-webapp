@@ -8,6 +8,8 @@ from flask import Flask, request
 from imageio import imread
 from tensorflow import keras
 
+from hand_truncation import HandSearch
+
 
 def base64_to_image(base64_string: str) -> np.ndarray:
     # convert string of image data to uint8
@@ -24,6 +26,12 @@ def load_model(model_path: str):
     return model
 
 
+def detect_hand(image: np.ndarray, debug=False):
+    hand_search = HandSearch()
+    hand_image = hand_search.get_hand_image(image, debug=debug)
+    return hand_image
+
+
 def preprocess_image(image: np.ndarray) -> np.ndarray:
     # # Resize the input image to the pre-trained model input size
     image = cv2.resize(image, (224, 224))
@@ -38,11 +46,8 @@ def preprocess_image(image: np.ndarray) -> np.ndarray:
 
 
 def sign_predict(model, image: np.ndarray):
-    # Preprocess the image (example: resizing to 32x32 and normalizing pixel values)
-    preprocessed_image = preprocess_image(image)
-
     # Make the prediction
-    prediction = model.predict(preprocessed_image)
+    prediction = model.predict(image)
 
     # Post-process the prediction (example: finding the class with the highest probability)
     sign_class = np.argmax(prediction)
@@ -63,8 +68,7 @@ def number_to_letter(number):
         return 'unknown'
     
 
-
-
+# initialize our Flask application and the Keras model
 app = Flask(__name__)
 
 # load model
@@ -80,12 +84,18 @@ def classify():
     # convert base64 to image
     image = base64_to_image(image_data_base64)
 
+    # detect hand in image
+    image = detect_hand(image, debug=False)
+
     # show image
-    # cv2.imshow("image from base64", image)
-    # cv2.waitKey(0)
+    cv2.imshow("image from base64", image)
+    cv2.waitKey(0)
+
+    # preprocess the image
+    preprocessed_image = preprocess_image(image)
 
     # classify image
-    pred, probability = sign_predict(model, image)
+    pred, probability = sign_predict(model, preprocessed_image)
     pred_letter = number_to_letter(pred)
     print(f"prediction: {pred} ({probability}%) - {pred_letter}")
     return pred_letter
