@@ -87,9 +87,9 @@ def classify():
     # detect hand in image
     image = detect_hand(image, debug=False)
 
-    # show image
-    cv2.imshow("image from base64", image)
-    cv2.waitKey(0)
+    # # show image
+    # cv2.imshow("image from base64", image)
+    # cv2.waitKey(0)
 
     # preprocess the image
     preprocessed_image = preprocess_image(image)
