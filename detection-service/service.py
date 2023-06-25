@@ -12,6 +12,7 @@ from tensorflow import keras
 def base64_to_image(base64_string: str) -> np.ndarray:
     # convert string of image data to uint8
     image = imread(io.BytesIO(base64.b64decode(base64_string)))
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     return image
 
 
@@ -31,9 +32,9 @@ def preprocess_image(image: np.ndarray) -> np.ndarray:
     image = image.reshape((1, 224, 224, 3))
 
     # # Normalize the input image
-    # image = image / 255.0
+    scaled = (image / np.max(image)).astype("float")
 
-    return image
+    return scaled
 
 
 def sign_predict(model, image: np.ndarray):
@@ -45,8 +46,23 @@ def sign_predict(model, image: np.ndarray):
 
     # Post-process the prediction (example: finding the class with the highest probability)
     sign_class = np.argmax(prediction)
+    probabiltiy = np.max(prediction)
 
-    return sign_class
+    return sign_class, probabiltiy
+
+
+def number_to_letter(number):
+    labels = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+        'V', 'W', 'X', 'Y', 'Z', 'del', 'nothing', 'space'
+    ]
+
+    if 0 <= number < len(labels):
+        return labels[number]
+    else:
+        return 'unknown'
+    
+
 
 
 app = Flask(__name__)
@@ -58,7 +74,7 @@ model = keras.models.load_model(
 model.compile()
 
 
-@app.route("/classify", methods=["POST"])
+@app.route("/api/classify", methods=["POST"])
 def classify():
     image_data_base64 = request.json["image"]
     # convert base64 to image
@@ -69,10 +85,10 @@ def classify():
     # cv2.waitKey(0)
 
     # classify image
-    sign = sign_predict(model, image)
-    print("prediction: ", sign)
-    
-    return str(sign)
+    pred, probability = sign_predict(model, image)
+    pred_letter = number_to_letter(pred)
+    print(f"prediction: {pred} ({probability}%) - {pred_letter}")
+    return pred_letter
 
 
 if __name__ == "__main__":
