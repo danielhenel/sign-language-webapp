@@ -7,6 +7,7 @@ import {Alphabet} from "../../models/alphabet";
 export class GameService {
   alphabet: Alphabet;
   currentLetter: string = "";
+  currentLetterConfidence: number = 0;
   currentWord: string = "";
   currentImageUrl: string = "";
   lettersLeft: string[] = [];
@@ -48,6 +49,18 @@ export class GameService {
       this.isWordGuessed = true;
       this.isGameStarted = false;
     }
+  }
+
+  setLastGuess(letter, confidence){
+    this.currentLetter = letter;
+    this.currentLetterConfidence = confidence;
+  }
+
+  getLastGuess(){
+    // let approx_conf = (Math.round(this.currentLetterConfidence * 100)/100).toFixed(2); // round to 2 decimal places
+    let approx_conf = Math.round(this.currentLetterConfidence * 100);
+    console.log(approx_conf)
+    return this.currentLetter + " (" + approx_conf + "%)";
   }
 
   isLetterGuessed(letter: string): boolean {

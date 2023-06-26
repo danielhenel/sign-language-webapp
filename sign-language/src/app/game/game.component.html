@@ -1,4 +1,4 @@
-<h2 style="text-align: center; text-transform: uppercase">Test your sign language skills with the game!</h2>
+<h2 style="text-align: center;">Test your sign language skills with our game!</h2>
 <div class="wrapper">
   <div class="game">
     <button (click)="testClick()">Click to generate word</button>
@@ -13,12 +13,12 @@
       </div>
       <div class="letters">
         <div class="letter" *ngFor="let letter of this.gameService.getWordLetters()"
-             [style.background-color]="gameService.isLetterGuessed(letter) ? 'green' : 'red'">
+             [style.background-color]="gameService.isLetterGuessed(letter) ? '#23D197' : '#F67E7D'">
           {{letter}}
         </div>
       </div>
       <div>
-        <h2>Predicted: {{predicted}}</h2>
+        <h2>Prediction: {{gameService.getLastGuess()}}</h2>
       </div>
     </div>
 
