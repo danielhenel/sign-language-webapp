@@ -36,11 +36,11 @@ def preprocess_image(image: np.ndarray) -> np.ndarray:
     # # Resize the input image to the pre-trained model input size
     image = cv2.resize(image, (224, 224))
 
-    # # Convert the input image to the shape the model expects
-    image = image.reshape((1, 224, 224, 3))
-
     # # Normalize the input image
     scaled = (image / np.max(image)).astype("float")
+
+    # # Convert the input image to the shape the model expects
+    scaled = scaled.reshape((1, 224, 224, 3))
 
     return scaled
 
@@ -98,7 +98,8 @@ def classify():
     pred, probability = sign_predict(model, preprocessed_image)
     pred_letter = number_to_letter(pred)
     print(f"prediction: {pred} ({probability}%) - {pred_letter}")
-    return pred_letter
+    
+    return {"letter": pred_letter, "confidence": str(probability)}
 
 
 if __name__ == "__main__":
