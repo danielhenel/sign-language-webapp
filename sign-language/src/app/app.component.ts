@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Router} from "@angular/router";
 import {MatIconModule} from '@angular/material/icon';
 
@@ -10,6 +11,10 @@ import {MatIconModule} from '@angular/material/icon';
 export class AppComponent {
   title = 'sign-language';
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private modalService: NgbModal) {}
+
+  public open(modal: any): void {
+    this.modalService.open(modal);
+  }
 
 }
