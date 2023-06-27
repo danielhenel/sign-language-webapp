@@ -1,24 +1,25 @@
 <!-- Navbar -->
 <nav class="toolbar" role="banner">
+
   <button (click)="this.router.navigate(['/ranking']);" mat-icon-button color="black"  aria-label="Ranking" >
     <mat-icon>star</mat-icon>
   </button>
-  <button (click)="this.router.navigate(['/login']);" mat-icon-button color="black"  aria-label="Login" >
-    <mat-icon>account_circle</mat-icon>
-  </button>
-  <button (click)="this.router.navigate(['/camera-capture']);" mat-icon-button color="black"  aria-label="Camera" >
-    <mat-icon>camera</mat-icon>
-  </button>
-  <button (click)="this.router.navigate(['/game']);" mat-icon-button color="black" aria-label="Home">
+
+  <button (click)="this.router.navigate(['/game']);" mat-icon-button color="black" aria-label="Game">
     <mat-icon>videogame_asset</mat-icon>
   </button>
-  <button (click)="this.router.navigate(['/home']);" mat-icon-button color="black" aria-label="Home">
-    <mat-icon>home</mat-icon>
-  </button>
+
   <button (click)="this.router.navigate(['/flashcards']);" mat-icon-button color="black" aria-label="Learning">
     <mat-icon>library_books</mat-icon>
   </button>
 
+  <button (click)="this.router.navigate(['/login']);" mat-icon-button color="black"  aria-label="Login" >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <button (click)="this.router.navigate(['/home']);" mat-icon-button color="black" aria-label="Home">
+    <mat-icon>home</mat-icon>
+  </button>
 
 </nav>
 <div class="toDel"></div>
