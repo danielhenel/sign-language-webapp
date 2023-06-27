@@ -73,7 +73,7 @@ app = Flask(__name__)
 
 # load model
 model = keras.models.load_model(
-    "detection-service\models\mobileNetV2+10.h5", compile=False
+    "models/mobileNetV2+10.h5", compile=False
 )
 model.compile()
 
