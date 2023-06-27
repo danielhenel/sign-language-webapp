@@ -77,6 +77,8 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # Secrets 
-.backend/secrets.js
+secrets.js
 
 node_modules
+__pycache__
+.angular
