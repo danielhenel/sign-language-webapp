@@ -3,6 +3,7 @@ import io
 
 import cv2
 import numpy as np
+import bcrypt
 import tensorflow as tf
 from flask import Flask, request
 from imageio import imread
@@ -120,8 +121,11 @@ def login():
     password = request.json["password"]
     user = users.find({"_id" : username})
     user = next(user, None)
+
+    is_password_correct = bcrypt.checkpw(password.encode('utf-8'), user["password"].encode('utf-8'))
+
     if user:
-        if password == user["password"]:
+        if is_password_correct:
             return { "acknowledged" : True, "msg" : "Login successful."} 
         else:
             return { "acknowledged" : False, "msg" : "Wrong password. Try again."} 
