@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   fieldsCorrect: boolean = false;
   isSubmitted:boolean = false;
 
-  constructor(public router: Router,
+  constructor(private http: HttpClient, public router: Router,
               // private authenticationService: AuthenticationService
   ) { }
 
@@ -29,11 +30,13 @@ export class LoginComponent {
   }
 
   login(){
-    //   // this.authenticationService.authorize(
-    //   //   this.loginForm.controls['username'].value,
-    //   //   this.loginForm.controls['password'].value
-    //   // );
-    //   // show success message or error message when login is successful or not
+    this.http.post(
+      '/api/login',
+      JSON.stringify(this.loginForm.value),
+      {headers: new HttpHeaders( {'Content-Type': 'application/json'})}
+    ).subscribe((data: any) => {
+        alert(data["msg"]);
+    });
   }
 
   inputValid() {

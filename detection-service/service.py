@@ -114,5 +114,19 @@ def register():
     return { "acknowledged" : response.acknowledged } 
 
 
+@app.route("/api/login", methods=["POST"])
+def login():
+    username = request.json["username"]
+    password = request.json["password"]
+    user = users.find({"_id" : username})
+    user = next(user, None)
+    if user:
+        if password == user["password"]:
+            return { "acknowledged" : True, "msg" : "Login successful."} 
+        else:
+            return { "acknowledged" : False, "msg" : "Wrong password. Try again."} 
+    else:
+        return { "acknowledged" : False, "msg" : "The user does not exist."} 
+
 if __name__ == "__main__":
     app.run()
