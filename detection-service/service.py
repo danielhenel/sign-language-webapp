@@ -7,6 +7,7 @@ import tensorflow as tf
 from flask import Flask, request
 from imageio import imread
 from tensorflow import keras
+from database import users, records, User, Record
 
 from hand_truncation import HandSearch
 
@@ -100,6 +101,16 @@ def classify():
     print(f"prediction: {pred} ({probability}%) - {pred_letter}")
     
     return {"letter": pred_letter, "confidence": str(probability)}
+
+
+@app.route("/api/create/user", methods=["POST"])
+def register():
+    new_user = User(request.json["username"],request.json["password"], request.json["email"])
+    try:
+        response = users.insert_one(new_user.to_json())
+    except Exception as e:
+        print(e)
+    return { "acknowledged" : response.acknowledged } 
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent {
   fieldsCorrect: boolean = false;
   isSubmitted:boolean = false;
 
-  constructor(public router: Router,
+  constructor(private http: HttpClient, public router: Router,
               // private authenticationService: AuthenticationService
   ) { }
 
@@ -30,16 +31,23 @@ export class RegisterComponent {
     this.registerForm = new FormGroup({
       username: username,
       password: password,
-      firstName: firstName,
-      lastName: lastName,
       email: email,
-      phone: phone,
-      address: address
     });
   }
 
   register() {
-
+    this.http.post(
+      '/api/create/user',
+      JSON.stringify(this.registerForm.value),
+      {headers: new HttpHeaders( {'Content-Type': 'application/json'})}
+    ).subscribe((data: any) => {
+      if(data["acknowledged"]){
+        alert("Successfully registered");
+      }
+      else{
+        alert("Registration failed");
+      }
+    });
   }
 
   inputValid() {
@@ -54,23 +62,7 @@ export class RegisterComponent {
     return this.registerForm.controls['password'].valid || this.registerForm.controls['password'].untouched;
   }
 
-  validateFirstName() {
-    return this.registerForm.controls['firstName'].valid || this.registerForm.controls['firstName'].untouched;
-  }
-
-  validateLastName() {
-    return this.registerForm.controls['lastName'].valid || this.registerForm.controls['lastName'].untouched;
-  }
-
   validateEmail() {
     return this.registerForm.controls['email'].valid || this.registerForm.controls['email'].untouched;
-  }
-
-  validatePhone() {
-    return this.registerForm.controls['phone'].valid || this.registerForm.controls['phone'].untouched;
-  }
-
-  validateAddress() {
-    return this.registerForm.controls['address'].valid || this.registerForm.controls['address'].untouched;
   }
 }
