@@ -45,7 +45,7 @@ export class RegisterComponent {
         alert("Successfully registered");
       }
       else{
-        alert("Registration failed");
+        alert(data["error"]);
       }
     });
   }

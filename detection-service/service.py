@@ -110,6 +110,7 @@ def register():
         response = users.insert_one(new_user.to_json())
     except Exception as e:
         print(e)
+        return { "acknowledged" : False, "error" : "The username is taken by another user"} 
     return { "acknowledged" : response.acknowledged } 
 
 

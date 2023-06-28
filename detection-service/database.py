@@ -15,7 +15,7 @@ class User:
     
     def to_json(self):
         return { 
-            "username" : self.username,
+            "_id" : self.username,
             "password" : self.password,
             "email" : self.email
         }
@@ -27,6 +27,6 @@ class Record:
 
     def to_json(self):
         return { 
-            "username" : self.username,
+            "_id" : self.username,
             "points" : self.points
         }
