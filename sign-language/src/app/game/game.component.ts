@@ -11,6 +11,7 @@ export class GameComponent implements OnInit{
   predicted = '';
 
   async ngOnInit(): Promise<void> {
+    this.gameService.generateWord();
   }
 
   testWithMockPredictions(event: KeyboardEvent) {

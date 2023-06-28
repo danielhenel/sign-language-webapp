@@ -1,36 +1,44 @@
-<h2 style="text-align: center;">Test your sign language skills with our game!</h2>
-<div class="wrapper">
-  <div class="game">
-    <button (click)="testClick()">Click to generate word</button>
-    <input type="text" [(ngModel)]="userInput" (keydown)="testWithMockPredictions($event)">
-
-    <div class="word" *ngIf="this.gameService.isGameStarted">
-      <div class="wordImage">
-        <p class="title">{{this.gameService.currentWord}}</p>
-        <img [src]="this.gameService.currentImageUrl" alt="">
-      </div>
-      <div class="wordText">
-      </div>
-      <div class="letters">
-        <div class="letter" *ngFor="let letter of this.gameService.getWordLetters()"
-             [style.background-color]="gameService.isLetterGuessed(letter) ? '#23D197' : '#F67E7D'">
-          {{letter}}
+<div class="p-3">
+  <h2 style="text-align: center;">Test your sign language skills with our game!</h2>
+  <div class="container w-75">
+    <div class="row">
+      <div class="col">
+        <div>
+          <button class="btn btn-dark" (click)="testClick()">Generate a new word</button>
+          <div *ngIf="this.gameService.isGameStarted">
+            <div class="wordImage p-3">
+              <img [src]="this.gameService.currentImageUrl" alt="">
+            </div>
+            <div class="wordText">
+            </div>
+            <div class="letters">
+              <div class="letter" *ngFor="let letter of this.gameService.getWordLetters()"
+                  [style.background-color]="gameService.isLetterGuessed(letter) ? '#23D197' : '#F67E7D'">
+                {{letter}}
+              </div>
+            </div>
+            <div>
+              <h2>Prediction: {{gameService.getLastGuess()}}</h2>
+            </div>
+          </div>
+  
+          <div *ngIf="!this.gameService.isGameStarted && this.gameService.isWordGuessed ">
+            Well done. You properly showed word <b>{{this.gameService.currentWord}}</b>! Congrats.
+          </div>
+  
+          <div *ngIf="!this.gameService.isGameStarted">
+            Click button to pick random word! :)
+          </div>
         </div>
       </div>
-      <div>
-        <h2>Prediction: {{gameService.getLastGuess()}}</h2>
+      <div class="col">
+        <div>
+          <app-camera-capture></app-camera-capture>
+        </div>
       </div>
-    </div>
-
-    <div *ngIf="!this.gameService.isGameStarted && this.gameService.isWordGuessed ">
-      Well done. You properly showed word <b>{{this.gameService.currentWord}}</b>! Congrats.
-    </div>
-
-    <div *ngIf="!this.gameService.isGameStarted">
-      Click button to pick random word! :)
-    </div>
   </div>
-  <div class="camera-wrapper">
-    <app-camera-capture></app-camera-capture>
   </div>
+  
+
+
 </div>

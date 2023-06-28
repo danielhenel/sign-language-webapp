@@ -1,18 +1,22 @@
-<div class="container mt-5">
-  <p>Camera preview</p>
-  <div class="col-md-12">
-    <webcam
-      [trigger]="invokeObservable"
-      (imageCapture)="captureImg($event)"
-    ></webcam>
-  </div>
-  <div class="col-md-12">
-    <button class="btn btn-danger" (click)="getSnapshot()">
-      Capture Image
-    </button>
-  </div>
-  <div class="col-12">
-    <div id="results">Your taken image manifests here...</div>
-    <img [src]="webcamImage?.imageAsDataUrl" height="400px" />
+<div class="container">
+  <div class="col">
+    <div class="row">
+      <h4 class="text-center">Camera preview</h4>
+    </div>
+    <div class="row">
+      <webcam class="m-3"
+        [trigger]="invokeObservable"
+        (imageCapture)="captureImg($event)"
+      ></webcam>
+    </div>
+    <div class="row">
+      <button class="btn btn-dark" (click)="getSnapshot()">
+        Capture Image
+      </button>
+    </div>
+    <div class="row">
+      <h6 class="m-3 text-center">Your taken image manifests here...</h6>
+      <img  class="rounded"[src]="webcamImage?.imageAsDataUrl" height="400px" />
+    </div>
   </div>
 </div>
