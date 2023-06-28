@@ -40,10 +40,9 @@ export class GameService {
   guessLetter(letter: string){
     letter = letter.toLowerCase();
 
-    let index = this.lettersLeft.indexOf(letter);
-    if(index > -1){
+    if(letter == this.lettersLeft[0]){
       // remove all occurrences of letter
-      this.lettersLeft = this.lettersLeft.filter(l => l !== letter);
+      this.lettersLeft.shift();
     }
     if(this.lettersLeft.length === 0){
       this.isWordGuessed = true;
