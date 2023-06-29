@@ -14,6 +14,7 @@ export class LoginComponent {
   //if all fields are filled correctly, changes submit button from disabled to enabled and vice versa
   fieldsCorrect: boolean = false;
   isSubmitted:boolean = false;
+  isLoggedIn:boolean = false;
 
   constructor(private http: HttpClient, public router: Router
               // private authenticationService: AuthenticationService
@@ -21,6 +22,7 @@ export class LoginComponent {
 
   ngOnInit(): void {
     // create form group for new review
+    this.isLoggedIn = Boolean(localStorage.getItem('currentUser'));
     let username = new FormControl(null, Validators.required);
     let password = new FormControl(null, Validators.required);
     this.loginForm = new FormGroup({
@@ -35,12 +37,14 @@ export class LoginComponent {
       JSON.stringify(this.loginForm.value),
       {headers: new HttpHeaders( {'Content-Type': 'application/json'})}
     ).subscribe((data: any) => {
-        alert(data["msg"]);
         if(data["acknowledged"]){
           localStorage.setItem('currentUser', this.loginForm.value["username"]);
+          this.isLoggedIn = true;
         }
         else{
           localStorage.removeItem('currentUser');
+          this.isLoggedIn = false;
+          alert(data["msg"]);
         }
     });
   }
@@ -55,5 +59,14 @@ export class LoginComponent {
 
   validatePassword() {
     return this.loginForm.controls['password'].valid || this.loginForm.controls['password'].untouched;;
+  }
+
+  logOut() {
+    this.isLoggedIn = false;
+    localStorage.removeItem('currentUser');
+  }
+
+  getUsername(){
+    return localStorage.getItem('currentUser');
   }
 }

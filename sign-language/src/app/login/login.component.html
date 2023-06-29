@@ -1,4 +1,4 @@
-<div class="loginWrapper">
+<div *ngIf="!isLoggedIn" class="loginWrapper">
   <h1>Login</h1>
   <form class="form-group" [formGroup]="loginForm" (ngSubmit)="login()">
     <!--  username -->
@@ -18,4 +18,15 @@
       <button mat-raised-button color="basic" (click)="this.router.navigate(['/register']);">REGISTER</button>
     </div>
   </form>
+</div>
+
+<div *ngIf="isLoggedIn">
+  <div class="container w-75">
+    <div class="row">
+      <h1 class="text-center">Hello {{getUsername()}}!</h1>
+    </div>
+  </div>
+  <div class="container text-center">
+    <button class="btn btn-dark" (click)="logOut()">LOGOUT</button>
+  </div>
 </div>
