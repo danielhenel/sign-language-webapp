@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Alphabet} from "../../models/alphabet";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,7 @@ export class GameService {
   isGameStarted: boolean = false;
   isWordGuessed: boolean = false;
 
-
-  constructor() {
+  constructor(private http: HttpClient) {
     this.alphabet = new Alphabet();
   }
 
@@ -43,6 +43,15 @@ export class GameService {
     if(letter == this.lettersLeft[0]){
       // remove all occurrences of letter
       this.lettersLeft.shift();
+      if (localStorage.getItem('currentUser')){
+        this.http.post(
+          '/api/update/points',
+          {"username" : localStorage.getItem('currentUser')},
+          {headers: new HttpHeaders( {'Content-Type': 'application/json'})}
+        ).subscribe((data: any) => {
+            console.log(data);
+        });
+      }
     }
     if(this.lettersLeft.length === 0){
       this.isWordGuessed = true;

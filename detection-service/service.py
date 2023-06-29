@@ -74,7 +74,7 @@ app = Flask(__name__)
 
 # load model
 model = keras.models.load_model(
-    "models/mobileNetV2+10.h5", compile=False
+    "models/mobileNetV2FT4ep-v2.h5", compile=False
 )
 model.compile()
 
@@ -106,8 +106,10 @@ def classify():
 @app.route("/api/create/user", methods=["POST"])
 def register():
     new_user = User(request.json["username"],request.json["password"], request.json["email"])
+    new_record = Record(request.json["username"],0)
     try:
         response = users.insert_one(new_user.to_json())
+        records.insert_one(new_record.to_json())
     except Exception as e:
         print(e)
         return { "acknowledged" : False, "error" : "The username is taken by another user"} 
@@ -128,5 +130,16 @@ def login():
     else:
         return { "acknowledged" : False, "msg" : "The user does not exist."} 
 
+
+@app.route("/api/update/points", methods=["POST"])
+def update_points():
+    username = request.json["username"]
+    user = records.find({"_id" : username})
+    user = next(user, None)
+    points = user["points"] + 2 # add 2 points
+    records.update_one({"_id" : username}, {"$set" : {"points" : points}})
+    return "updated"
+
+        
 if __name__ == "__main__":
     app.run()
