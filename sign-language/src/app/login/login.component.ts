@@ -15,7 +15,7 @@ export class LoginComponent {
   fieldsCorrect: boolean = false;
   isSubmitted:boolean = false;
 
-  constructor(private http: HttpClient, public router: Router,
+  constructor(private http: HttpClient, public router: Router
               // private authenticationService: AuthenticationService
   ) { }
 
@@ -36,6 +36,12 @@ export class LoginComponent {
       {headers: new HttpHeaders( {'Content-Type': 'application/json'})}
     ).subscribe((data: any) => {
         alert(data["msg"]);
+        if(data["acknowledged"]){
+          localStorage.setItem('currentUser', this.loginForm.value["username"]);
+        }
+        else{
+          localStorage.removeItem('currentUser');
+        }
     });
   }
 

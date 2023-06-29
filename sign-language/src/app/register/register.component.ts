@@ -15,7 +15,7 @@ export class RegisterComponent {
   fieldsCorrect: boolean = false;
   isSubmitted:boolean = false;
 
-  constructor(private http: HttpClient, public router: Router,
+  constructor(private http: HttpClient, public router: Router
               // private authenticationService: AuthenticationService
   ) { }
 
@@ -23,11 +23,7 @@ export class RegisterComponent {
     // create form group for new review
     let username = new FormControl(null, Validators.required);
     let password = new FormControl(null, Validators.required);
-    let firstName = new FormControl(null, Validators.required);
-    let lastName = new FormControl(null, Validators.required);
     let email = new FormControl(null, [Validators.required, Validators.email]);
-    let phone = new FormControl(null, [Validators.required, Validators.pattern("^[0-9]*$")]);
-    let address = new FormControl(null, Validators.required);
     this.registerForm = new FormGroup({
       username: username,
       password: password,
@@ -43,9 +39,11 @@ export class RegisterComponent {
     ).subscribe((data: any) => {
       if(data["acknowledged"]){
         alert("Successfully registered");
+        localStorage.setItem('currentUser', this.registerForm.value["username"]);
       }
       else{
         alert(data["error"]);
+        localStorage.removeItem('currentUser');
       }
     });
   }
