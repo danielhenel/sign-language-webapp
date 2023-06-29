@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-register',
@@ -32,6 +33,7 @@ export class RegisterComponent {
   }
 
   register() {
+    this.registerForm.value.password = bcrypt.hashSync(this.registerForm.value.password, 10);
     this.http.post(
       '/api/create/user',
       JSON.stringify(this.registerForm.value),
