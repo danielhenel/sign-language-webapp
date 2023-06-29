@@ -8,8 +8,8 @@
     </li>
     <li *ngFor="let player of playerRankings; let i = index" class="rankingWrapper">
       <div class="playerRank">{{i + 1}}</div>
-      <div class="playerName">{{player.name}}</div>
-      <div class="playerScore">{{player.score}}</div>
+      <div class="playerName">{{ getPlayerName(player) }}</div>
+      <div class="playerScore">{{ getPlayerScore(player) }}</div>
     </li>
   </ul>
 </div>

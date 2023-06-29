@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-ranking',
@@ -6,12 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent {
-  playerRankings = [
-    { name: 'John', score: 100 },
-    { name: 'Alice', score: 95 },
-    { name: 'Bob', score: 85 },
-    { name: 'Charlie', score: 75 },
-    { name: 'Eve', score: 60 },
-  ];
+  playerRankings: any[] = [];
 
+  constructor(private http: HttpClient) {}
+  
+  ngOnInit() {
+    this.http.get<any[]>('/api/ranking').subscribe((data: any[]) => {
+      this.playerRankings = data;
+    });
+  }
+
+  getPlayerName(player: any): string {
+    return Object.keys(player)[0];
+  }  
+
+  getPlayerScore(player: any): any {
+    return Object.values(player)[0];
+  }  
 }

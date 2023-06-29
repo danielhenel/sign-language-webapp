@@ -140,6 +140,16 @@ def update_points():
     records.update_one({"_id" : username}, {"$set" : {"points" : points}})
     return "updated"
 
+
+@app.route("/api/ranking", methods=["GET"])
+def get_ranking():
+    cursor = records.find({})
+    sorted_records = {}
+    for record in cursor:
+        sorted_records[record["_id"]] = record["points"]   
+    sorted_records = [ { k : v } for k, v in sorted(sorted_records.items(), key=lambda item: item[1], reverse=True)]
+    return sorted_records
         
+          
 if __name__ == "__main__":
     app.run()
