@@ -11,7 +11,7 @@
     <div class="form-group" [ngClass]="{'error': !validatePassword()}">
       <label for="password">Password</label>
       <em *ngIf="!validatePassword()">Required</em>
-      <input type="text" class="form-control" formControlName="password" id="password" placeholder="Password" required>
+      <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password" required>
     </div>
     <!-- email -->
     <div class="form-group" [ngClass]="{'error': !validateEmail()}">
