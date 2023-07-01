@@ -1,0 +1,154 @@
+{
+  "A": [
+    {
+      "word": "Apple",
+      "imageUrl": "https://img.freepik.com/premium-vector/red-apple-vector-healthy-sweet-fruit_68708-3076.jpg"
+    },
+    {
+      "word": "Alligator",
+      "imageUrl": "https://freepngimg.com/thumb/alligator/127604-alligator-vector-download-free-image.png"
+    }
+  ],
+  "B": [
+    {
+      "word": "Bear",
+      "imageUrl": "https://img.freepik.com/free-vector/brown-bears-set_74855-15326.jpg"
+    },
+    {
+      "word": "Butterfly",
+      "imageUrl": "https://img.freepik.com/darmowe-wektory/motyl-realistyczny-na-bialym-tle_1284-3881.jpg?w=2000"
+    }
+  ],
+  "C": [
+    {
+      "word": "Car",
+      "imageUrl": "https://img.freepik.com/darmowe-wektory/nowoczesna-niebieska-urban-adventure-ilustracja-suv-pojazdu_1344-205.jpg?w=360"
+    }
+  ],
+  "D": [
+    {
+      "word": "Dog",
+      "imageUrl": "https://img.freepik.com/free-photo/cute-spitz_144627-7076.jpg?w=2000"
+    }
+  ],
+  "E": [
+    {
+      "word": "Elephant",
+      "imageUrl": "https://img.freepik.com/premium-zdjecie/slon-afrykanski-na-bialym-tle_191971-11371.jpg"
+    }
+  ],
+  "F": [
+    {
+      "word": "Fish",
+      "imageUrl": "https://img.freepik.com/free-vector/cute-clownfish-swimming-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-flat_138676-4489.jpg"
+    }
+  ],
+  "G": [
+    {
+      "word": "Giraffe",
+      "imageUrl": "https://img.freepik.com/premium-vector/giraffe-head-isolated-white-african-animal-mammal-portrait-illustration_91248-731.jpg?w=2000"
+    }
+  ],
+  "H": [
+    {
+      "word": "Horse",
+      "imageUrl": "https://img.freepik.com/free-vector/horse-racing-cartoon-icon-illustration_138676-2255.jpg?w=2000"
+    }
+  ],
+  "I": [
+    {
+      "word": "Iguana",
+      "imageUrl": "https://img.freepik.com/premium-wektory/ilustracja-wektorowa-ladny-zielony-iguana_714605-806.jpg"
+    }
+  ],
+  "K": [
+    {
+      "word": "Koala",
+      "imageUrl": "https://img.freepik.com/darmowe-wektory/slodka-postac-z-kreskowki-koali_1308-132636.jpg?w=2000"
+    }
+  ],
+  "L": [
+    {
+      "word": "Lion",
+      "imageUrl": "https://img.freepik.com/free-vector/nice-lion_1196-396.jpg"
+    }
+  ],
+  "M": [
+    {
+      "word": "Monkey",
+      "imageUrl": "https://img.freepik.com/premium-vector/cute-monkey-cartoon_160606-265.jpg?w=2000"
+    }
+  ],
+  "N": [
+    {
+      "word": "Narwhal",
+      "imageUrl": "https://img.freepik.com/darmowe-wektory/narwal-na-bialym-tle_1308-125064.jpg?w=2000"
+    }
+  ],
+  "O": [
+    {
+      "word": "Owl",
+      "imageUrl": "https://img.freepik.com/darmowe-wektory/kolorowy-skoncentrowany-madra-sowa-szablon_225004-1580.jpg?w=2000"
+    }
+  ],
+  "P": [
+    {
+      "word": "Penguin",
+      "imageUrl": "https://img.freepik.com/darmowe-wektory/pinguin_53876-57854.jpg"
+    }
+  ],
+  "Q": [
+    {
+      "word": "Quail",
+      "imageUrl": "https://img.freepik.com/premium-vector/quail-bird_74669-307.jpg?w=2000"
+    }
+  ],
+  "R": [
+    {
+      "word": "Raccoon",
+      "imageUrl": "https://img.freepik.com/premium-photo/raccoon-9-months-procyon-lotor-isolated_191971-11618.jpg"
+    }
+  ],
+  "S": [
+    {
+      "word": "Snake",
+      "imageUrl": "https://img.freepik.com/premium-vector/cute-green-snake-cartoon-isolated_29190-4758.jpg"
+    }
+  ],
+  "T": [
+    {
+      "word": "Tiger",
+      "imageUrl": "https://img.freepik.com/darmowe-wektory/kolorowy-wzor-tygrysa_1196-140.jpg?w=2000"
+    }
+  ],
+  "U": [
+    {
+      "word": "Urial",
+      "imageUrl": "https://img.freepik.com/premium-vector/cartoon-urial-with-long-curly-horns-vector-illustration-cute-wild-animal_268436-95.jpg?w=2000"
+    }
+  ],
+  "V": [
+    {
+      "word": "Vulture",
+      "imageUrl": "https://img.freepik.com/premium-wektory/rysunek-rysunek-od-sep_29937-10152.jpg"
+    }
+  ],
+  "W": [
+    {
+      "word": "Whale",
+      "imageUrl": "https://img.freepik.com/premium-vector/illustration-cute-whale-cartoon_33070-2926.jpg?w=2000"
+    }
+  ],
+  "X": [
+    {
+      "word": "X Ray",
+      "imageUrl": "https://img.freepik.com/free-vector/man-with-x-ray-chest-bones-medical-treatment_613284-810.jpg"
+    }
+  ],
+  "Y": [
+    {
+      "word": "Yak",
+      "imageUrl": "https://img.freepik.com/premium-vector/cartoon-happy-yak_29190-4361.jpg"
+    }
+  ]
+}

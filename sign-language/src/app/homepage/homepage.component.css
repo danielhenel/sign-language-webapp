@@ -1,0 +1,25 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+}
+
+iframe {
+  width: 55%;
+  height: 70%;
+  margin-left: 25%;
+}
+
+.restaurant-description {
+  width: 60%;
+}
+
+.icon-display {
+  margin-top: 50px;
+  transform: scale(5);
+}

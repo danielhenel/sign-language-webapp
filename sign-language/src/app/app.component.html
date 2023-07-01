@@ -1,0 +1,35 @@
+<!-- Navbar -->
+<nav class="py-3 px-3 navbar navbar-expand-lg navbar-light bg-light" role="banner">
+  <!-- <div class="mx-auto"></div> -->
+  <div class="navbar-brand">SignWise</div>
+  <div>
+    <ul class="mr-auto navbar-nav">
+      <li class="nav-item">
+        <button (click)="this.router.navigate(['/home']);" mat-icon-button color="black" aria-label="Home">
+          <mat-icon>home</mat-icon>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button (click)="this.router.navigate(['/login']);" mat-icon-button color="black"  aria-label="Login" >
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button (click)="this.router.navigate(['/flashcards']);" mat-icon-button color="black" aria-label="Learning">
+          <mat-icon>library_books</mat-icon>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button (click)="this.router.navigate(['/game']);" mat-icon-button color="black" aria-label="Game">
+          <mat-icon>videogame_asset</mat-icon>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button (click)="this.router.navigate(['/ranking']);" mat-icon-button color="black"  aria-label="Ranking" >
+          <mat-icon>star</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

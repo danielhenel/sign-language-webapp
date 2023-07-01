@@ -1,0 +1,38 @@
+<div *ngIf="!isLoggedIn" class="registerWrapper">
+  <h1>Register</h1>
+  <form class="form-group" [formGroup]="registerForm" (ngSubmit)="register()">
+    <!--  username -->
+    <div class="form-group" [ngClass]="{'error': !validateUsername()}">
+      <label for="username">Username</label>
+      <em *ngIf="!validateUsername()">Required</em>
+      <input type="text" class="form-control" formControlName="username"  id="username" placeholder="Your username" required>
+    </div>
+    <!--    password -->
+    <div class="form-group" [ngClass]="{'error': !validatePassword()}">
+      <label for="password">Password</label>
+      <em *ngIf="!validatePassword()">Required</em>
+      <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password" required>
+    </div>
+    <!-- email -->
+    <div class="form-group" [ngClass]="{'error': !validateEmail()}">
+      <label for="email">Email</label>
+      <em *ngIf="!validateEmail()">Required</em>
+      <input type="text" class="form-control" formControlName="email" id="email" placeholder="Email" required>
+    </div>
+    <div class="buttons">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!inputValid()">REGISTER</button>
+      <button mat-raised-button color="basic" (click)="this.router.navigate(['/login']);">BACK</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="isLoggedIn">
+  <div class="container w-75">
+    <div class="row">
+      <h1 class="text-center">Hello {{getUsername()}}!</h1>
+    </div>
+  </div>
+  <div class="container text-center">
+    <button class="btn btn-dark" (click)="logOut()">LOGOUT</button>
+  </div>
+</div>
